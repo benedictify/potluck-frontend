@@ -28,10 +28,10 @@ const Header = () => {
         <StyledHeader>   
             <StyledMainLogo id="mainLogo">PotluckPlanner</StyledMainLogo>
             <StyledNavbar id="navbar">
-                <Link to="/" class="headernav">HOME</Link>
-                <Link to="/login" class="headernav">LOGIN</Link>
-                <Link to="/signup" class="headernav">SIGN UP</Link>
-                <Link to="/events" class="headernav">EVENTS</Link>
+                <Link to="/" className="headernav">HOME</Link>
+                <Link to="/login" className="headernav">LOGIN</Link>
+                <Link to="/signup" className="headernav">SIGN UP</Link>
+                <Link to="/events" className="headernav">EVENTS</Link>
             </StyledNavbar>
         </StyledHeader>
     )
