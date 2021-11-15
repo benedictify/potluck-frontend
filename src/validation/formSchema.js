@@ -4,14 +4,15 @@ const formSchema = yup.object().shape({
     name: yup
         .string()
         .trim()
-        .required("name must be at least 2 characters")
-        .min(2, "name must be at least 2 characters"),
+        .required("You must enter a name for your account")
+        .min(2, "Your name must include at least 2 characters"),
     email: yup
         .string()
-        .required("You must select a size for your pizza")
-        .oneOf(['small', 'medium', 'large'], "Pizza size is required"),
+        .email()
+        .required("You must an email for your account"),
     password: yup
         .string()
+        .min(5, "Your password must be at least 5 characters"),
 });
 
 export default formSchema;
