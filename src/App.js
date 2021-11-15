@@ -10,10 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <Middle />
-<<<<<<< HEAD
       <Footer />
-=======
->>>>>>> main
     </div>
   );
 }
