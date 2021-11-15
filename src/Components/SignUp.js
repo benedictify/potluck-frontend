@@ -17,7 +17,27 @@ const Styledh2 = styled.h2
 const StyledErrors = styled.div 
 `   color: red;
     font-weight: bold;
-    padding: 2%;
+    padding: 1%;
+`
+const StyledInputFields = styled.div 
+`   display: flex;
+    flex-direction: column;
+`
+const StyledSubmitButton = styled.button 
+`   background-color: green;
+    color: white;
+    margin-bottom: 2%;
+    padding: .5% 1%;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: darkgreen;
+    }
+
+    &:disabled {
+        background-color: lightgrey;
+        color: darkgrey;
+    }
 `
 
 const SignUpForm = (props) => {
@@ -46,38 +66,40 @@ const SignUpForm = (props) => {
                 <Styledh2>Create an Account</Styledh2>
             </StyledHeader>
             <form id="form-body" onSubmit={onSubmit}>
-                <label>Name&nbsp;
-                    <input 
-                        id='name-input'
-                        value={formValues.name}
-                        onChange={onChange}
-                        name='name'
-                        type='text'
-                    />
-                </label>
-                <label>Email&nbsp;
-                    <input 
-                        value = {formValues.email}
-                        onChange = {onChange}
-                        name = 'email'
-                        type = 'email'
-                    />
-                </label>
-                <label>Password&nbsp;
-                    <input 
-                        value = {formValues.password}
-                        onChange = {onChange}
-                        name = 'password'
-                        type = 'password'
-                    />
-                </label>
-                
+                <StyledInputFields>
+                    <p>Please create an account by filling in the fields below! Each field is required.<br />Your password must be at least 5 characters long.</p>
+                    <label>Name&nbsp;
+                        <input 
+                            id='name-input'
+                            value={formValues.name}
+                            onChange={onChange}
+                            name='name'
+                            type='text'
+                        />
+                    </label>
+                    <label>Email&nbsp;
+                        <input 
+                            value = {formValues.email}
+                            onChange = {onChange}
+                            name = 'email'
+                            type = 'email'
+                        />
+                    </label>
+                    <label>Password&nbsp;
+                        <input 
+                            value = {formValues.password}
+                            onChange = {onChange}
+                            name = 'password'
+                            type = 'password'
+                        />
+                    </label>
+                </StyledInputFields>
                 <StyledErrors className='errors'>
                     <div>{formErrors.name}</div>
                     <div>{formErrors.email}</div>
                     <div>{formErrors.password}</div>
                 </StyledErrors>
-                <button disabled={disabled} id='order-button'>SUBMIT</button>
+                <StyledSubmitButton disabled={disabled} id='order-button'>SUBMIT</StyledSubmitButton>
             </form>
         </div>
     );

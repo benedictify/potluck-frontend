@@ -67,3 +67,6 @@ a:active {
   text-decoration: underline;
 }
 
+#form-body label {
+  margin: .5%
+}
