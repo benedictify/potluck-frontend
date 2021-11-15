@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+.headernav {
+  text-decoration: none;
+  padding: 1%;
+  color: white;
+}
+
+.headernav:hover {
+  background-color: white;
+  color: green;
+  border-radius: 5px;
+}
