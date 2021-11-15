@@ -29,6 +29,7 @@ const StyledSubmitButton = styled.button
     margin-bottom: 2%;
     padding: .5% 1%;
     border-radius: 5px;
+    border: none;
 
     &:hover {
         background-color: darkgreen;

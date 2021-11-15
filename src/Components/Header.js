@@ -12,23 +12,27 @@ const StyledHeader = styled.div
     background-color: green;
 `
 
-const StyledMainLogo = styled.p 
-`   font-weight: bold;
+const StyledMainLogo = styled.a 
+`   text-decoration: none;
+    font-weight: bold;
     font-size: 1.5rem;
     line-height: 0;
     color: white;
+    &:hover {
+        color: lightgrey;
+    }
 `
 
 const StyledNavbar = styled.div 
 `   display: flex;
-justify-content: flex-end;
-width: 100%;
+    justify-content: flex-end;
+    width: 100%;
 `
 
 const Header = () => {
     return (
         <StyledHeader>   
-            <StyledMainLogo id="mainLogo">PotluckPlanner</StyledMainLogo>
+            <StyledMainLogo id="mainLogo" href="/">PotluckPlanner</StyledMainLogo>
             <StyledNavbar id="navbar">
                 <Link to="/" className="headernav">HOME</Link>
                 <Link to="/login" className="headernav">LOGIN</Link>
