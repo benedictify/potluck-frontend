@@ -1,57 +1,37 @@
 import React from 'react'
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
     Link
 } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledList = styled.ul`
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
+const StyledFooter = styled.div 
+`   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5% 1%;
+    background-color: green;
+    margin: 0;
 `
 
-const StyledLink = styled.li`
-    margin: 0 2%;
+
+
+const StyledNavbar = styled.div 
+`   display: flex;
+justify-content: center;
+width: 100%;
 `
 
 
 const Footer = () => {
     return (
-        <Router>
-            <footer>
-                <StyledList>
-                    <StyledLink>
-                        <Link to="/">Home</Link>
-                    </StyledLink>
-                    <StyledLink>
-                        <Link to="/user-login">User Login</Link>
-                    </StyledLink>
-                    <StyledLink>
-                        <Link to="/signup-page">Signup Page</Link>
-                    </StyledLink>
-                    <StyledLink>
-                        <Link to="/events">Events</Link>
-                    </StyledLink>
-                </StyledList>
-            </footer>
-                <Routes>
-                    <Route path ="/user-login">
-                        {/* User Login */}
-                    </Route>
-                    <Route path ="/signup-page">
-                        {/* Signup-Page */}
-                    </Route>
-                    <Route path ="/events">
-                        {/* Events */}
-                    </Route>
-                    <Route exact path ="/">
-                        {/* Home */}
-                    </Route>
-                </Routes>
-        </Router>
+        <StyledFooter>   
+            <StyledNavbar id="navbar">
+                <Link to="/" >HOME</Link>
+                <Link to="/login">LOGIN</Link>
+                <Link to="/signup">SIGN UP</Link>
+                <Link to="/events">EVENTS</Link>
+            </StyledNavbar>
+        </StyledFooter>
        
     )
 }
