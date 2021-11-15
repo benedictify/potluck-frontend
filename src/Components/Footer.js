@@ -1,68 +1,36 @@
 import React from 'react'
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
     Link
 } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledFooter = styled.footer`
-    background-color: green;
-    margin: 0px;
-    height: 10vh;
-    
-`
-
-const StyledList = styled.ul`
-    list-style-type: none;
-    margin: auto;
-    padding: 2% 0;
-    display: flex;
+const StyledHeader = styled.div 
+`   display: flex;
     justify-content: space-between;
-    flex-flow: row;
-    width: 50%;
+    align-items: center;
+    padding: .5% 1%;
+    background-color: green;
 `
 
-const StyledLink = styled.li`
-    width: 10%;
+
+
+const StyledNavbar = styled.div 
+`   display: flex;
+justify-content: center;
+width: 100%;
 `
 
 
 const Footer = () => {
     return (
-        <Router>
-            <StyledFooter>
-                <StyledList>
-                    <StyledLink>
-                        <Link to="/">HOME</Link>
-                    </StyledLink>
-                    <StyledLink>
-                        <Link to="/user-login">LOGIN</Link>
-                    </StyledLink>
-                    <StyledLink>
-                        <Link to="/signup-page">SIGN UP</Link>
-                    </StyledLink>
-                    <StyledLink>
-                        <Link to="/events">EVENTS</Link>
-                    </StyledLink>
-                </StyledList>
-            </StyledFooter>
-                <Routes>
-                    <Route path ="/user-login">
-                        {/* User Login */}
-                    </Route>
-                    <Route path ="/signup-page">
-                        {/* Signup-Page */}
-                    </Route>
-                    <Route path ="/events">
-                        {/* Events */}
-                    </Route>
-                    <Route exact path ="/">
-                        {/* Home */}
-                    </Route>
-                </Routes>
-        </Router>
+        <StyledHeader>   
+            <StyledNavbar id="navbar">
+                <Link to="/" >HOME</Link>
+                <Link to="/login">LOGIN</Link>
+                <Link to="/signup">SIGN UP</Link>
+                <Link to="/events">EVENTS</Link>
+            </StyledNavbar>
+        </StyledHeader>
        
     )
 }
