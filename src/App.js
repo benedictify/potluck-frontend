@@ -20,10 +20,9 @@ function App() {
 
         <Route path='/'>
           <Middle />
-          <Footer />
         </Route>
       </Switch>
-
+      <Footer />
       
     </div>
   );
