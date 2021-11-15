@@ -4,12 +4,13 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledHeader = styled.div 
+const StyledFooter = styled.div 
 `   display: flex;
     justify-content: space-between;
     align-items: center;
     padding: .5% 1%;
     background-color: green;
+    margin: 0;
 `
 
 
@@ -23,14 +24,14 @@ width: 100%;
 
 const Footer = () => {
     return (
-        <StyledHeader>   
+        <StyledFooter>   
             <StyledNavbar id="navbar">
                 <Link to="/" >HOME</Link>
                 <Link to="/login">LOGIN</Link>
                 <Link to="/signup">SIGN UP</Link>
                 <Link to="/events">EVENTS</Link>
             </StyledNavbar>
-        </StyledHeader>
+        </StyledFooter>
        
     )
 }
