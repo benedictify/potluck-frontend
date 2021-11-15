@@ -37,6 +37,7 @@
   }
 }
 
+<<<<<<< HEAD
 a:link {
   text-decoration: none;
   color: black;
@@ -56,3 +57,17 @@ a:active {
 }
 
 
+=======
+
+.headernav {
+  text-decoration: none;
+  padding: 1%;
+  color: white;
+}
+
+.headernav:hover {
+  background-color: white;
+  color: green;
+  border-radius: 5px;
+}
+>>>>>>> main
