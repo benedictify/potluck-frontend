@@ -1,1 +1,1 @@
-# potluck-app
+# potluck-app-frontend
