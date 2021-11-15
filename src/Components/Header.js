@@ -1,5 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
+} from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledHeader = styled.div 
@@ -25,15 +30,17 @@ width: 100%;
 
 const Header = () => {
     return (
-        <StyledHeader>   
-            <StyledMainLogo id="mainLogo">PotluckPlanner</StyledMainLogo>
-            <StyledNavbar id="navbar">
-                <Link to="/" class="headernav">HOME</Link>
-                <Link to="/login" class="headernav">LOGIN</Link>
-                <Link to="/signup" class="headernav">SIGN UP</Link>
-                <Link to="/events" class="headernav">EVENTS</Link>
-            </StyledNavbar>
-        </StyledHeader>
+        <Router>
+            <StyledHeader>   
+                <StyledMainLogo id="mainLogo">PotluckPlanner</StyledMainLogo>
+                <StyledNavbar id="navbar">
+                    <Link to="/" class="headernav">HOME</Link>
+                    <Link to="/login" class="headernav">LOGIN</Link>
+                    <Link to="/signup" class="headernav">SIGN UP</Link>
+                    <Link to="/events" class="headernav">EVENTS</Link>
+                </StyledNavbar>
+            </StyledHeader>
+        </Router>
     )
 }
 
