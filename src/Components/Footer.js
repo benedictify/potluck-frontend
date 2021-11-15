@@ -5,27 +5,37 @@ import {
     Route,
     Link
 } from 'react-router-dom';
+import styled from 'styled-components';
 
+const StyledList = styled.ul`
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+`
+
+const StyledLink = styled.li`
+    margin: 0 2%;
+`
 
 
 const Footer = () => {
     return (
         <Router>
             <footer>
-                <ul>
-                    <li>
+                <StyledList>
+                    <StyledLink>
                         <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/">User Login</Link>
-                    </li>
-                    <li>
-                        <Link to="/">Signup Page</Link>
-                    </li>
-                    <li>
-                        <Link to="/">Events</Link>
-                    </li>
-                </ul>
+                    </StyledLink>
+                    <StyledLink>
+                        <Link to="/user-login">User Login</Link>
+                    </StyledLink>
+                    <StyledLink>
+                        <Link to="/signup-page">Signup Page</Link>
+                    </StyledLink>
+                    <StyledLink>
+                        <Link to="/events">Events</Link>
+                    </StyledLink>
+                </StyledList>
             </footer>
                 <Routes>
                     <Route path ="/user-login">
