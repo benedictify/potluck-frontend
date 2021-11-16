@@ -9,7 +9,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Middle from './Components/Middle';
 import SignUpForm from './Components/SignUp';
-import Events from './Components/Events';
+import EventsDashboard from './Components/EventsDashboard';
 import CreateEvent from './Components/CreateEvent';
 
 
@@ -94,7 +94,7 @@ function App() {
         <Switch>
           <Route path='/create-event' component={CreateEvent}></Route>
           
-          <Route path='/events' component={Events}></Route>
+          <Route path='/events' component={EventsDashboard}></Route>
           
           <Route path='/signup'>
             <SignUpForm 

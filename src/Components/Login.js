@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< Login
 import styled from 'styled-components';
 
 
