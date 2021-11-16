@@ -83,3 +83,13 @@ a:active {
   font-size: 3rem;
   text-shadow: 2px 2px 4px #190000;
 }
+
+#eventsNav a {
+  background-color: green;
+}
+
+.eventButton {
+  width: 15%;
+  margin: 1% auto;
+  border-radius: 5px;
+}
