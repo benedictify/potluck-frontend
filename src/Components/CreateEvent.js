@@ -15,10 +15,12 @@ const initialFormValues = {
     email: ""
 };
 const initialEvents = [];
+const initialItems = [];
 
 const CreateEvent = () => {
     const [formValues, setFormValues] = useState(initialFormValues);
     const [events, setEvents] = useState(initialEvents);
+    const [items, setItems] = useState(initialItems);
 
     const postNewEvent = newEvent => {
         axios.post('https://reqres.in/api/events', newEvent)
@@ -64,16 +66,37 @@ const CreateEvent = () => {
                     <h2>Create Event</h2>
             </StyledHeader>
             <form onSubmit={onSubmit}>
-                <label>Date
-                    <input 
-                        type="date" 
-                        id="date" 
-                        name="date" 
-                        value={formValues.date} 
-                        required 
-                        onChange={onChange}
-                    />
-                </label>
+                <div>
+                    <label>Date
+                        <input 
+                            type="date" 
+                            id="date" 
+                            name="date" 
+                            value={formValues.date} 
+                            required 
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Time
+                        <input 
+                            type="time" 
+                            id="time" 
+                            name="time" 
+                            value={formValues.time}
+                            onChange={onChange}
+                        />
+                    </label>
+                    <label>Location
+                        <input 
+                            type="text" 
+                            id="location" 
+                            name="location" 
+                            value={formValues.location}
+                            onChange={onChange}
+                        />
+                    </label>
+                </div>
+
                 <label>Add food to list
                     <input 
                         type="text" 
@@ -84,27 +107,10 @@ const CreateEvent = () => {
                     />
                 </label>
                 <input 
-                type="submit" 
-                value="Add food to list"
+                    type="submit" 
+                    value="Add food to list"
                 />
-                <label>Time
-                    <input 
-                        type="time" 
-                        id="time" 
-                        name="time" 
-                        value={formValues.time}
-                        onChange={onChange}
-                    />
-                </label>
-                <label>Location
-                    <input 
-                        type="text" 
-                        id="location" 
-                        name="location" 
-                        value={formValues.location}
-                        onChange={onChange}
-                    />
-                </label>
+                
                 <label>Guest Invitations
                     <input 
                         type="email" 
@@ -114,6 +120,11 @@ const CreateEvent = () => {
                         onChange={onChange}
                     />
                 </label>
+                <input 
+                    type="submit" 
+                    value="Invite Guest"
+                />
+
                 <input type="submit" value="Create Event"/>
             </form>
         </div>
