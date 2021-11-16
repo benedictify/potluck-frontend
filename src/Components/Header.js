@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-    Link
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledHeader = styled.div 
@@ -31,7 +29,7 @@ const StyledNavbar = styled.div
 
 const Header = () => {
     return (
-        <StyledHeader>   
+        <StyledHeader>
             <StyledMainLogo id="mainLogo" href="/">PotluckPlanner</StyledMainLogo>
             <StyledNavbar id="navbar">
                 <Link to="/" className="headernav">HOME</Link>

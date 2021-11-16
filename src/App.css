@@ -70,3 +70,41 @@ a:active {
 #form-body label {
   margin: .5%
 }
+
+.headerBanner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2%;
+  height: 50vh;
+  color: white;
+}
+.headerBanner h2 {
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px #190000;
+}
+
+.eventButton {
+  background-color: green;
+  width: 15%;
+  margin: 1% auto;
+  border-radius: 5px;
+}
+
+.eventButton:hover {
+  background-color: darkgreen;
+}
+
+
+
+
+
+
+
+/* Pushes footer down vvv */
+.content {
+  min-height: calc(100vh - 70px);
+}
+.footer {
+  height: 50px;
+}

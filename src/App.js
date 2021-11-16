@@ -1,19 +1,20 @@
 import './App.css';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import Middle from './Components/Middle';
-import SignUpForm from './Components/SignUp';
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from 'react-router-dom';
 import axios from "axios";
 import formSchema from './validation/formSchema';
 import * as yup from 'yup';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import Middle from './Components/Middle';
+import SignUpForm from './Components/SignUp';
 import Events from './Components/Events';
+import CreateEvent from './Components/CreateEvent';
 import Login from './Components/Login';
 import Calendar from './Components/Calendar';
 
 
-// Form Value Setup
+// SignUpForm Value Setup
 const initialFormValues = {
   name: '',
   email: '',
@@ -28,7 +29,7 @@ const initialUsers = [];
 const initialDisabled = true;
 
 function App() {
-  // Const values for SignUp Form vv
+  // Const values for SignUpForm vv
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -82,43 +83,39 @@ function App() {
     formSchema.isValid(formValues)
       .then(valid => setDisabled(!valid));
   }, [formValues])
-  // ^^ Values and functions for SignUp Form
+  // ^^ Values and functions for SignUpForm
 
 
 
   return (
     <div className="App">
-      <Header />
+      <div className='content'> {/* this div pushes the footer down*/}
+        <Header />
 
-      <Switch>
-        <Route path='/events' component={Events}></Route>
-        
-        <Route path='/signup'>
-          <SignUpForm 
-            formValues={formValues}
-            inputChange={inputChange}
-            formSubmit={formSubmit}
-            disabled={disabled}
-            formErrors={formErrors}
-          />
-        </Route>
-        <Route path='/Calendar'> 
-          <Calendar
-
-          />
-        </Route>
-        <Route path='/login'>
-          <Login 
+        <Switch>
+          <Route path='/create-event' component={CreateEvent}></Route>
           
-          />
-        </Route>
+          <Route path='/events' component={Events}></Route>
+          
+          <Route path='/signup'>
+            <SignUpForm 
+              formValues={formValues}
+              inputChange={inputChange}
+              formSubmit={formSubmit}
+              disabled={disabled}
+              formErrors={formErrors}
+            />
+          </Route>
+          
+          <Route path='/login' component={Login}></Route>
 
-        <Route exact path='/'>
-          <Middle />
-        </Route>
-      </Switch>
-      <Footer />
+          <Route exact path='/'>
+            <Middle />
+          </Route>
+        </Switch>
+      </div>
       
+      <Footer />
     </div>
   );
 }
