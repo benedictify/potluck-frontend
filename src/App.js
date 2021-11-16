@@ -1,18 +1,19 @@
 import './App.css';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import Middle from './Components/Middle';
-import SignUpForm from './Components/SignUp';
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from 'react-router-dom';
 import axios from "axios";
 import formSchema from './validation/formSchema';
 import * as yup from 'yup';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import Middle from './Components/Middle';
+import SignUpForm from './Components/SignUp';
 import Events from './Components/Events';
+import CreateEvent from './Components/CreateEvent';
 import Login from './Components/Login';
 
 
-// Form Value Setup
+// SignUpForm Value Setup
 const initialFormValues = {
   name: '',
   email: '',
@@ -90,6 +91,8 @@ function App() {
       <Header />
 
       <Switch>
+        <Route path='/create-event' component={CreateEvent}></Route>
+        
         <Route path='/events' component={Events}></Route>
         
         <Route path='/signup'>
