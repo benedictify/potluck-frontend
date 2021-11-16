@@ -17,9 +17,12 @@ const Middle = () => {
     justify-content: center;
     align-items: center;
   }
+  .left h1 {
+    font-size 48px;
+  }
   .left h3 {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 28px;
   }
   .right {
     width: 50%;
