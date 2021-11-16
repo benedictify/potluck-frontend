@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import styled from 'styled-components'
 import axios from 'axios';
 
-const ininialState = {
+const initialState = {
     credentials: {
       username: '',
       password: ''
@@ -12,7 +12,7 @@ const ininialState = {
 }
 
 const SignUpForm = () => {
-    const [state, setState] = useState(ininialState);
+    const [state, setState] = useState(initialState);
     const {push} = useHistory();
     
     
@@ -107,10 +107,6 @@ const Label = styled.label`
     font-size: 1.5rem;
 `
 
-const FormGroup = styled.form`
-    padding:1rem;
-`
-
 const Input = styled.input`
     font-size: 1rem;
     padding: 1rem 0;
@@ -124,31 +120,3 @@ const Button = styled.button`
 const LineBreak = styled.div`
     height: 1vh
 `
-
-// const StyledHeader = styled.div 
-//  `   background-image: url('https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/Dishes_at_Potluck.jpg');
-//  `
- const StyledErrors = styled.div 
- `   color: red;
-     font-weight: bold;
-     padding: 1%;
- `
- const StyledInputFields = styled.div 
- `   display: flex;
-     flex-direction: column;
- `
- const StyledSubmitButton = styled.button 
- `   background-color: green;
-     color: white;
-     margin-bottom: 2%;
-     padding: .5% 1%;
-     border-radius: 5px;
-     border: none;
-     &:hover {
-         background-color: darkgreen;
-     }
-     &:disabled {
-         background-color: lightgrey;
-         color: darkgrey;
-     }
- `

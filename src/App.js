@@ -35,7 +35,7 @@ function App() {
   const [users, setUsers] = useState(initialUsers);
 
   const getUsers = () => {
-    axios.get('https://reqres.in/api/users')
+    axios.get('https://potluckplanner2.herokuapp.com/api/users')
       .then(res => {
         setUsers(res.data.data);
       })
@@ -43,7 +43,7 @@ function App() {
   }
 
   const postNewUser = newUser => {
-    axios.post('https://reqres.in/api/users', newUser)
+    axios.post('https://potluckplanner2.herokuapp.com/api/auth/register', newUser)
       .then(res => {
         setUsers([ ...users, res.data]);
       })

@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Food from './FoodList';
@@ -23,16 +23,16 @@ const initialFormValues = {
     email: ""
 };
 const initialEvents = [];
-const initialItems = [];
 
 const CreateEvent = () => {
     const [formValues, setFormValues] = useState(initialFormValues);
     const [events, setEvents] = useState(initialEvents);
-    const [items, setItems] = useState(initialItems);
+    // const [items, setItems] = useState(initialItems);
 
     const postNewEvent = newEvent => {
         axios.post('https://reqres.in/api/events', newEvent)
           .then(res => {
+              console.log(res.data)
             setEvents([res.data, ...events]);
           })
           .catch(err => console.error(err))
@@ -119,19 +119,7 @@ const CreateEvent = () => {
                     </label>
                 </StyledDTL>
                 
-                <label>Add food to list
-                    <input 
-                        type="text" 
-                        id="food" 
-                        name="food" 
-                        value={formValues.food}
-                        onChange={onChange}
-                    />
-                </label>
-                <input 
-                    type="submit" 
-                    value="Add food to list"
-                />
+                <Food />
                 
                 <label>Guest Invitations
                     <input 
@@ -149,7 +137,7 @@ const CreateEvent = () => {
 
                 <input type="submit" value="Create Event"/>
             </form>
-            <Food />
+
         </div>
     )
 };
