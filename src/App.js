@@ -4,13 +4,13 @@ import { Route, Switch } from 'react-router-dom';
 import axios from "axios";
 import formSchema from './validation/formSchema';
 import * as yup from 'yup';
+import LoginForm from './Components/Login';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Middle from './Components/Middle';
 import SignUpForm from './Components/SignUp';
-import Events from './Components/Events';
+import EventsDashboard from './Components/EventsDashboard';
 import CreateEvent from './Components/CreateEvent';
-import Login from './Components/Login';
 
 
 // SignUpForm Value Setup
@@ -35,7 +35,7 @@ function App() {
   const [users, setUsers] = useState(initialUsers);
 
   const getUsers = () => {
-    axios.get('https://reqres.in/api/users')
+    axios.get('https://potluckplanner2.herokuapp.com/api/users')
       .then(res => {
         setUsers(res.data.data);
       })
@@ -43,7 +43,7 @@ function App() {
   }
 
   const postNewUser = newUser => {
-    axios.post('https://reqres.in/api/users', newUser)
+    axios.post('https://potluckplanner2.herokuapp.com/api/auth/register', newUser)
       .then(res => {
         setUsers([ ...users, res.data]);
       })
@@ -94,7 +94,7 @@ function App() {
         <Switch>
           <Route path='/create-event' component={CreateEvent}></Route>
           
-          <Route path='/events' component={Events}></Route>
+          <Route path='/events' component={EventsDashboard}></Route>
           
           <Route path='/signup'>
             <SignUpForm 
@@ -106,14 +106,20 @@ function App() {
             />
           </Route>
           
-          <Route path='/login' component={Login}></Route>
-
+          <Route path='/login'>
+            <LoginForm 
+              formValues={formValues}
+              inputChange={inputChange}
+              formSubmit={formSubmit}
+              disabled={disabled}
+              formErrors={formErrors}
+            />
+          </Route>
           <Route exact path='/'>
             <Middle />
           </Route>
         </Switch>
-      </div>
-      
+      </div>     
       <Footer />
     </div>
   );
