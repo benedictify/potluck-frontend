@@ -1,6 +1,118 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import styled from 'styled-components'
+import axios from 'axios';
 
+const ininialState = {
+    credentials: {
+      username: '',
+      password: ''
+    },
+    error: ''
+}
+
+const Login = () => {
+    const [state, setState] = useState(ininialState);
+    const {push} = useHistory();
+
+    const handleChange = e => {
+        setState({
+          credentials: {
+            ...state.credentials,
+            [e.target.name]: e.target.value
+          }
+        });
+      };
+
+    const handleLogin = e => {
+        e.preventDefault();
+    
+        axios.post('https://potluckplanner2.herokuapp.com/api/auth/login', state.credentials)
+          .then(resp=> {
+            localStorage.setItem('token', resp.data.token);
+            push('/events');
+          })
+          .catch(err=> { 
+            console.log(err);
+            setState({
+                ...state,
+                error: 'Login was not successful, please try again.'
+            })
+          })
+      };
+
+    return(<ComponentContainer>
+        <ModalContainer>
+            <h2>Please enter your account information.</h2>
+            <div>
+                <form onSubmit={handleLogin}>
+                <Label>Username</Label>
+                <Input
+                    id="username"
+                    type="username"
+                    name="username"
+                    value={state.credentials.username}
+                    onChange={handleChange}
+                />
+
+                <LineBreak/>
+
+                <Label>Password</Label>
+                <Input
+                    id="password"
+                    type="password"
+                    name="password"
+                    value={state.credentials.password}
+                    onChange={handleChange}
+                />
+                <p id="error">{state.error}</p>
+                <Button id="submit">Log in</Button>
+                </form>
+            </div>
+        </ModalContainer>
+    </ComponentContainer>);
+}
+
+export default Login;
+
+
+const ComponentContainer = styled.div`
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+`
+
+const ModalContainer = styled.div`
+    width: 500px;
+    background: white;
+    padding: 2rem;
+    text-align: center;
+`
+
+const Label = styled.label`
+    display: block;
+    text-align: left;
+    font-size: 1.5rem;
+`
+
+const FormGroup = styled.form`
+    padding:1rem;
+`
+
+const Input = styled.input`
+    font-size: 1rem;
+    padding: 1rem 0;
+    width:100%;
+`
+
+const Button = styled.button`
+    padding:1rem;
+    width: 100%;
+`
+const LineBreak = styled.div`
+    height: 1vh
+`
 
 const StyledHeader = styled.div 
 `   background-image: url('https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/Dishes_at_Potluck.jpg');
@@ -41,63 +153,3 @@ const StyledSubmitButton = styled.button
         color: darkgrey;
     }
 `
-
-
-
-const LoginForm = (props) => {
-    const {
-        formValues,
-        inputChange,
-        formSubmit,
-        disabled,
-        formErrors,
-      } = props
-
-      const onSubmit = event => {
-        event.preventDefault();
-        formSubmit();
-    }
-
-    const onChange = event => {
-        const { name, value, checked, type } = event.target;
-        const realValue = type === 'checkbox' ? checked : value;
-        inputChange(name, realValue);
-    }
-
-    return(
-        <div className="formContainer">
-            <StyledHeader className="formHeader">
-                <Styledh2>Create an Account</Styledh2>
-            </StyledHeader>
-            <form id="form-body" onSubmit={onSubmit}>
-                <StyledInputFields>
-                    <p>Please login with your username and password below.</p>
-                    <label>Email&nbsp;
-                        <input 
-                            value = {formValues.email}
-                            onChange = {onChange}
-                            name = 'email'
-                            type = 'email'
-                        />
-                    </label>
-                    <label>Password&nbsp;
-                        <input 
-                            value = {formValues.password}
-                            onChange = {onChange}
-                            name = 'password'
-                            type = 'password'
-                        />
-                    </label>
-                </StyledInputFields>
-                <StyledErrors className='errors'>
-                    <div>{formErrors.name}</div>
-                    <div>{formErrors.email}</div>
-                    <div>{formErrors.password}</div>
-                </StyledErrors>
-                <StyledSubmitButton disabled={disabled} id='submit-button'>SUBMIT</StyledSubmitButton>
-            </form>
-        </div>
-    );
-};
-
-export default LoginForm;
