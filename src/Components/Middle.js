@@ -33,11 +33,11 @@ const Middle = () => {
     padding: 5%;
     border-radius: 6px;
     background-color: green;
+    color:white;
   }
   .button-homepage:hover {
     /* opacity: 80%; */
     border:2px black solid;
-    color: black;
   }
   `
 
