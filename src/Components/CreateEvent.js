@@ -8,7 +8,13 @@ background-position: center;
 `
 
 const CreateEvent = () => {
-    
+    const initialFormValues = {
+        date: "",
+        food: "",
+        time: "",
+        location: "",
+        email: ""
+    };
     
     return (
         <div>
@@ -17,20 +23,20 @@ const CreateEvent = () => {
             </StyledHeader>
             <form>
                 <label>Date
-                    <input type="date" id="date" name="date"/>
+                    <input type="date" id="date" name="date" value={initialFormValues.date}/>
                 </label>
                 <label>Add food to list
-                    <input type="text" id="food" name="food"/>
+                    <input type="text" id="food" name="food" value={initialFormValues.food}/>
                 </label>
                 <input type="submit" value="Add food to list"/>
                 <label>Time
-                    <input type="time" id="time" name="time"/>
+                    <input type="time" id="time" name="time" value={initialFormValues.time}/>
                 </label>
                 <label>Location
-                    <input type="text" id="location" name="location"/>
+                    <input type="text" id="location" name="location" value={initialFormValues.location}/>
                 </label>
                 <label>Guest Invitations
-                    <input type="email" id="guest" name="guest"/>
+                    <input type="email" id="guest" name="guest" value={initialFormValues.email}/>
                 </label>
                 <input type="submit" value="Create Event"/>
             </form>
