@@ -88,31 +88,33 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <div className='content'> {/* this div pushes the footer down*/}
+        <Header />
 
-      <Switch>
-        <Route path='/create-event' component={CreateEvent}></Route>
-        
-        <Route path='/events' component={Events}></Route>
-        
-        <Route path='/signup'>
-          <SignUpForm 
-            formValues={formValues}
-            inputChange={inputChange}
-            formSubmit={formSubmit}
-            disabled={disabled}
-            formErrors={formErrors}
-          />
-        </Route>
-        
-        <Route path='/login' component={Login}></Route>
+        <Switch>
+          <Route path='/create-event' component={CreateEvent}></Route>
+          
+          <Route path='/events' component={Events}></Route>
+          
+          <Route path='/signup'>
+            <SignUpForm 
+              formValues={formValues}
+              inputChange={inputChange}
+              formSubmit={formSubmit}
+              disabled={disabled}
+              formErrors={formErrors}
+            />
+          </Route>
+          
+          <Route path='/login' component={Login}></Route>
 
-        <Route exact path='/'>
-          <Middle />
-        </Route>
-      </Switch>
-      <Footer />
+          <Route exact path='/'>
+            <Middle />
+          </Route>
+        </Switch>
+      </div>
       
+      <Footer />
     </div>
   );
 }

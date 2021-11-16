@@ -4,10 +4,6 @@ import styled from 'styled-components';
 const StyledHeader = styled.div 
 `   background-image: url('https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/Dishes_at_Potluck.jpg');
 `
-const Styledh2 = styled.h2 
-`   font-size: 3rem;
-    text-shadow: 2px 2px 4px #190000;
-`
 const StyledErrors = styled.div 
 `   color: red;
     font-weight: bold;
@@ -58,7 +54,7 @@ const SignUpForm = (props) => {
     return(
         <div className="formContainer">
             <StyledHeader className="headerBanner">
-                <Styledh2>Create an Account</Styledh2>
+                <h2>Create an Account</h2>
             </StyledHeader>
             <form id="form-body" onSubmit={onSubmit}>
                 <StyledInputFields>

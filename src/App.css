@@ -94,3 +94,17 @@ a:active {
 .eventButton:hover {
   background-color: darkgreen;
 }
+
+
+
+
+
+
+
+/* Pushes footer down vvv */
+.content {
+  min-height: calc(100vh - 70px);
+}
+.footer {
+  height: 50px;
+}
