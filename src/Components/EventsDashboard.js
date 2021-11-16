@@ -15,7 +15,7 @@ const StyledP = styled.p
 `   padding: 0 5%;
 `
 
-const Events = (props) => {
+const EventsDashboard = (props) => {
     return(
         <div id='eventsNav'>
             <StyledHeader className="headerBanner">
@@ -30,4 +30,4 @@ const Events = (props) => {
     );
 };
 
-export default Events;
+export default EventsDashboard;
