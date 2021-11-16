@@ -11,6 +11,7 @@ import SignUpForm from './Components/SignUp';
 import Events from './Components/Events';
 import CreateEvent from './Components/CreateEvent';
 import Login from './Components/Login';
+import Calendar from './Components/Calendar';
 
 
 // SignUpForm Value Setup
