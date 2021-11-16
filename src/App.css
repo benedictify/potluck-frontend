@@ -70,3 +70,16 @@ a:active {
 #form-body label {
   margin: .5%
 }
+
+.headerBanner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2%;
+  height: 50vh;
+  color: white;
+}
+.headerBanner h2 {
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px #190000;
+}
