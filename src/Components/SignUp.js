@@ -100,7 +100,7 @@ const SignUpForm = (props) => {
                     <div>{formErrors.email}</div>
                     <div>{formErrors.password}</div>
                 </StyledErrors>
-                <StyledSubmitButton disabled={disabled} id='order-button'>SUBMIT</StyledSubmitButton>
+                <StyledSubmitButton disabled={disabled} id='submit-button'>SUBMIT</StyledSubmitButton>
             </form>
         </div>
     );
