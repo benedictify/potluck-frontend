@@ -7,6 +7,13 @@ const StyledHeader = styled.div
 background-size: cover;
 background-position: center;
 `
+
+const StyledDTL = styled.div 
+`   display: flex;
+    flex-direction: column;
+    margin: 3%;
+`
+
 const initialFormValues = {
     date: "",
     food: [],
@@ -66,7 +73,17 @@ const CreateEvent = () => {
                     <h2>Create Event</h2>
             </StyledHeader>
             <form onSubmit={onSubmit}>
-                <div>
+                <StyledDTL>
+                    <label>Event Name
+                        <input 
+                            type="text" 
+                            id="eventName" 
+                            name="eventName" 
+                            value={formValues.date} 
+                            required 
+                            onChange={onChange}
+                        />
+                    </label>
                     <label>Date
                         <input 
                             type="date" 
@@ -95,8 +112,8 @@ const CreateEvent = () => {
                             onChange={onChange}
                         />
                     </label>
-                </div>
-
+                </StyledDTL>
+                
                 <label>Add food to list
                     <input 
                         type="text" 
