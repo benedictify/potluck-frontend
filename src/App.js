@@ -8,7 +8,6 @@ import { Route, Switch } from 'react-router-dom';
 import axios from "axios";
 import formSchema from './validation/formSchema';
 import * as yup from 'yup';
-import Signup from './Components/Signup';
 import Events from './Components/Events';
 import Login from './Components/Login';
 
@@ -28,7 +27,7 @@ const initialUsers = [];
 const initialDisabled = true;
 
 function App() {
-  // Const values for SignUp Form vv
+  // Const values for SignUpForm vv
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -82,7 +81,7 @@ function App() {
     formSchema.isValid(formValues)
       .then(valid => setDisabled(!valid));
   }, [formValues])
-  // ^^ Values and functions for SignUp Form
+  // ^^ Values and functions for SignUpForm
 
 
 
