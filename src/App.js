@@ -8,9 +8,9 @@ import { Route, Switch } from 'react-router-dom';
 import axios from "axios";
 import formSchema from './validation/formSchema';
 import * as yup from 'yup';
-import Signup from './Components/Signup';
 import Events from './Components/Events';
 import Login from './Components/Login';
+import Calendar from './Components/Calendar';
 
 
 // Form Value Setup
@@ -102,8 +102,16 @@ function App() {
             formErrors={formErrors}
           />
         </Route>
-        
-        <Route path='/login' component={Login}></Route>
+        <Route path='/Calendar'> 
+          <Calendar
+
+          />
+        </Route>
+        <Route path='/login'>
+          <Login 
+          
+          />
+        </Route>
 
         <Route exact path='/'>
           <Middle />
