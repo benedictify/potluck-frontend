@@ -19,7 +19,7 @@ const Events = (props) => {
     return(
         <div id='eventsNav'>
             <StyledHeader className="headerBanner">
-                    <h2>Events</h2>
+                    <h2>Events Dashboard</h2>
             </StyledHeader>
             <StyledEventsButtons>
                 <StyledP>To organize an event, click the "Create Event" button below! If you are an organizer on an existing event and would like to edit the date, location, or time of your event, click on the "Edit Event" button below.</StyledP>
