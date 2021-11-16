@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import Food from './FoodList';
 
 const StyledHeader = styled.div 
 `   background-image: url('https://hips.hearstapps.com/ell.h-cdn.co/assets/15/52/1450738482-elle-potluck-04-getty.jpg');
@@ -66,6 +67,10 @@ const CreateEvent = () => {
         const realValue = type === 'checkbox' ? checked : value;
         inputChange(name, realValue);
     }
+
+
+
+
 
     return (
         <div>
@@ -144,6 +149,7 @@ const CreateEvent = () => {
 
                 <input type="submit" value="Create Event"/>
             </form>
+            <Food />
         </div>
     )
 };
