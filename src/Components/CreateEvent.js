@@ -1,12 +1,20 @@
 import { React, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import Food from './FoodList';
 
 const StyledHeader = styled.div 
 `   background-image: url('https://hips.hearstapps.com/ell.h-cdn.co/assets/15/52/1450738482-elle-potluck-04-getty.jpg');
 background-size: cover;
 background-position: center;
 `
+
+const StyledDTL = styled.div 
+`   display: flex;
+    flex-direction: column;
+    margin: 3%;
+`
+
 const initialFormValues = {
     date: "",
     food: [],
@@ -60,13 +68,27 @@ const CreateEvent = () => {
         inputChange(name, realValue);
     }
 
+
+
+
+
     return (
         <div>
             <StyledHeader className="headerBanner">
                     <h2>Create Event</h2>
             </StyledHeader>
             <form onSubmit={onSubmit}>
-                <div>
+                <StyledDTL>
+                    <label>Event Name
+                        <input 
+                            type="text" 
+                            id="eventName" 
+                            name="eventName" 
+                            value={formValues.date} 
+                            required 
+                            onChange={onChange}
+                        />
+                    </label>
                     <label>Date
                         <input 
                             type="date" 
@@ -95,8 +117,8 @@ const CreateEvent = () => {
                             onChange={onChange}
                         />
                     </label>
-                </div>
-
+                </StyledDTL>
+                
                 <label>Add food to list
                     <input 
                         type="text" 
@@ -127,6 +149,7 @@ const CreateEvent = () => {
 
                 <input type="submit" value="Create Event"/>
             </form>
+            <Food />
         </div>
     )
 };
