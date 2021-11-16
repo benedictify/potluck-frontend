@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import Food from './FoodList';
+import {    v4 as uuidv4    } from 'uuid';
 
 const StyledHeader = styled.div 
 `   background-image: url('https://hips.hearstapps.com/ell.h-cdn.co/assets/15/52/1450738482-elle-potluck-04-getty.jpg');
@@ -15,6 +15,19 @@ const StyledDTL = styled.div
     margin: 3%;
 `
 
+const StyledFood = styled.ul`
+    list-style-type: none;
+    border: solid black 1px;
+    width: 50%;
+    height: 20vh;
+`;
+const StyledDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+`;
+
 const initialFormValues = {
     date: "",
     food: [],
@@ -23,11 +36,12 @@ const initialFormValues = {
     email: ""
 };
 const initialEvents = [];
+const initialFoodList = [];
+
 
 const CreateEvent = () => {
     const [formValues, setFormValues] = useState(initialFormValues);
     const [events, setEvents] = useState(initialEvents);
-    // const [items, setItems] = useState(initialItems);
 
     const postNewEvent = newEvent => {
         axios.post('https://reqres.in/api/events', newEvent)
@@ -44,7 +58,7 @@ const CreateEvent = () => {
     const formSubmit = () => {
         const newEvent = {
             date: formValues.date,
-            food: formValues.food,
+            food: list,
             time: formValues.time,
             location: formValues.location,
             email: formValues.email
@@ -58,7 +72,7 @@ const CreateEvent = () => {
     }
 
     const inputChange = (name, value) => {
-        // validate(name, value);
+        //validate(name, value);
         setFormValues({ ...formValues, [name]: value});
     };
 
@@ -66,6 +80,23 @@ const CreateEvent = () => {
         const { name, value, checked, type } = event.target;
         const realValue = type === 'checkbox' ? checked : value;
         inputChange(name, realValue);
+    }
+// Food List
+    const [list, setList] = useState(initialFoodList);
+    const [name, setName] = useState('');
+
+    const handleChange = (event) => {
+        //track input field's state
+        setName(event.target.value);
+    }
+
+    const handleAdd = () => {
+        //add item
+        const newList = list.concat({   name, id: uuidv4()    });
+
+        setList(newList);
+
+        setName('');
     }
 
 
@@ -84,7 +115,7 @@ const CreateEvent = () => {
                             type="text" 
                             id="eventName" 
                             name="eventName" 
-                            value={formValues.date} 
+                            value={formValues.name} 
                             required 
                             onChange={onChange}
                         />
@@ -118,9 +149,21 @@ const CreateEvent = () => {
                         />
                     </label>
                 </StyledDTL>
-                
-                <Food />
-                
+
+                <StyledDiv>
+                    <div>
+                        <input type="text" value={name} onChange={handleChange} />
+                        <button type="button" onClick={handleAdd}>
+                            Add food to list
+                        </button>
+                    </div>
+                    <StyledFood>
+                        {list.map((item) => (
+                            <li key={item.id}>{item.name}</li>
+                        ))}
+                    </StyledFood>
+                </StyledDiv>
+
                 <label>Guest Invitations
                     <input 
                         type="email" 
@@ -137,7 +180,6 @@ const CreateEvent = () => {
 
                 <input type="submit" value="Create Event"/>
             </form>
-
         </div>
     )
 };
