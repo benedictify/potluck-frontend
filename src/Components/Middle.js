@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 
 const Middle = () => {
@@ -27,15 +28,16 @@ const Middle = () => {
     width: 40vw;
   }
   .button-homepage {
-    margin-top: 7%;
-    width: 20%;
-    padding: 1%;
-    border-radius: 10px;
+    margin-top: 50%;
+    width: 135%;
+    padding: 5%;
+    border-radius: 6px;
+    background-color: green;
   }
   .button-homepage:hover {
-    opacity: 80%;
+    /* opacity: 80%; */
     border:2px black solid;
-    color: red;
+    color: black;
   }
   `
 
@@ -45,9 +47,13 @@ const Middle = () => {
       <StyledBody>
       <div className='left'>
         <h1>Big Pot of Luck</h1>
-        <h3>This years annual potluck This years annual potluck This years annual potluck This years annual potluck This years annual potluck</h3>
-        <h3>Lorem wont shortcut Lorem wont shortcut Lorem wont shortcut Lorem wont shortcut Lorem wont shortcut Lorem wont shortcut Lorem wont shortcut Lorem wont shortcut Lorem wont shortcut Lorem wont shortcut</h3>
-        <button className='button-homepage'>Get Started!</button>
+        <h3>By using our potluck planner, we guarantee simplistic accessability for our hosts to be able to create various events for friends and family to attend. Guests are able to attend events and import different items that they would be arriving with. </h3>
+        <h3>This allows individuals to have a log of attendees and contents that will be brought to specific event. Do not hesitate to click the sign up button below to get started on your first event!</h3>
+        
+        <form action='/signup'>
+          <button className='button-homepage'>SIGN UP</button>
+        </form>
+
       </div>
       <div className='right'>
 
