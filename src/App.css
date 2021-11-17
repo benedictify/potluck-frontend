@@ -50,7 +50,6 @@
   border-radius: 5px;
 }
 
-
 a:link {
   text-decoration: none;
   padding: 1%;
@@ -83,7 +82,7 @@ a:visited {
 }
 
 /* YourEvents */
-.eventButton, #acceptButton {
+.eventButton, #acceptButton, #eventSubmit {
   background-color: green;
 }
 
@@ -100,7 +99,7 @@ a:visited {
   border-radius: 5px;
 }
 
-.eventButton:hover, #acceptButton:hover {
+.eventButton:hover, #acceptButton:hover, #eventSubmit:hover {
   background-color: darkgreen;
 }
 
@@ -112,7 +111,44 @@ a:visited {
   margin-bottom: 5%;
 }
 
+/* Create Event */
+#itemList, #guestList {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  text-align: left;
+}
 
+#eventSubmit {
+  margin: 2% auto 4%;
+  padding: 1% 2%;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#listContainer {
+  width: 60%;
+  margin: 0 5%;
+}
+
+#testDiv {
+  display: flex;
+}
+.DTL h4 {
+  margin: 0 0 2%;
+}
+
+.DTL label {
+  margin: 1% 0;
+}
+
+#listContainer h4 {
+  margin: 0;
+}
+#listContainer p {
+  margin: 1% 0 2%;
+}
 
 
 
