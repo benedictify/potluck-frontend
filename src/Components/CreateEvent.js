@@ -13,6 +13,8 @@ const StyledDTL = styled.div
 `   display: flex;
     flex-direction: column;
     margin: 3%;
+    // text-align: left;
+    // width: 20%;
 `
 
 const StyledList = styled.ul`
@@ -124,9 +126,10 @@ const CreateEvent = () => {
             <StyledHeader className="headerBanner">
                     <h2>Create Event</h2>
             </StyledHeader>
-            <form onSubmit={onSubmit}>
-                <StyledDTL>
-                    <label>Event Name
+            <p>Create an event by filling in each of the fields below!</p>
+            <form onSubmit={onSubmit} id="eventForm">
+                <StyledDTL className="DTL">
+                    <label>Event Name&nbsp;
                         <input 
                             type="text" 
                             id="eventName" 
@@ -134,9 +137,10 @@ const CreateEvent = () => {
                             value={formValues.eventName} 
                             required 
                             onChange={onChange}
+                            placeholder="Event Name"
                         />
                     </label>
-                    <label>Date
+                    <label>Date&nbsp;
                         <input 
                             type="date" 
                             id="date" 
@@ -146,7 +150,7 @@ const CreateEvent = () => {
                             onChange={onChange}
                         />
                     </label>
-                    <label>Time
+                    <label>Time&nbsp;
                         <input 
                             type="time" 
                             id="time" 
@@ -155,60 +159,50 @@ const CreateEvent = () => {
                             onChange={onChange}
                         />
                     </label>
-                    <label>Location
+                    <label>Location&nbsp;
                         <input 
                             type="text" 
                             id="location" 
                             name="location" 
                             value={formValues.location}
                             onChange={onChange}
+                            placeholder="Location"
                         />
                     </label>
                 </StyledDTL>
+                <div id="listContainer">
+                    <StyledDiv id="itemList">
+                        <div>
+                            <p>Enter an item that you would like a guest to bring, then click the button to add it to the list.</p>
+                            <input type="text" value={foodName} onChange={handleChangeFood} placeholder="Item"/>
+                            <button type="button" onClick={handleAddFood}>
+                                Add item
+                            </button>
+                        </div>
+                        <StyledList>
+                            {foodList.map((item) => (
+                                <li key={item.id}>{item.foodName}</li>
+                            ))}
+                        </StyledList>
+                    </StyledDiv>
+                    
+                    <StyledDiv id="guestList">
+                        <div>
+                            <p>Enter a guest's PotluckPlanner username, then click the button to add them to the guest list.<br/><b>NOTE:</b>You must enter their username correctly, otherwise they will not receive their invitation.</p>
+                            <input type="text" value={guestName} onChange={handleChangeGuest} placeholder="Username"/>
+                            <button type="button" onClick={handleAddGuest}>
+                                Add guest
+                            </button>
+                        </div>
+                        <StyledList>
+                            {guestList.map((item) => (
+                                <li key={item.id}>{item.guestName}</li>
+                            ))}
+                        </StyledList>
+                    </StyledDiv>
+                </div>
 
-                <StyledDiv>
-                    <div>
-                        <input type="text" value={foodName} onChange={handleChangeFood} />
-                        <button type="button" onClick={handleAddFood}>
-                            Add food to list
-                        </button>
-                    </div>
-                    <StyledList>
-                        {foodList.map((item) => (
-                            <li key={item.id}>{item.foodName}</li>
-                        ))}
-                    </StyledList>
-                </StyledDiv>
-                
-                <StyledDiv>
-                    <div>
-                        <input type="text" value={guestName} onChange={handleChangeGuest} />
-                        <button type="button" onClick={handleAddGuest}>
-                            Add guest to list
-                        </button>
-                    </div>
-                    <StyledList>
-                        {guestList.map((item) => (
-                            <li key={item.id}>{item.guestName}</li>
-                        ))}
-                    </StyledList>
-                </StyledDiv>
-               
-                {/* <label>Guest Invitations
-                    <input 
-                        type="email" 
-                        id="guest" 
-                        name="guest" 
-                        value={formValues.email}
-                        onChange={onChange}
-                    />
-                </label>
-                <input 
-                    type="submit" 
-                    value="Invite Guest"
-                /> */}
-
-                <input type="submit" value="Create Event"/>
+                <input type="submit" value="CREATE EVENT" id="eventSubmit"/>
             </form>
         </div>
     )
