@@ -6,8 +6,8 @@ import axios from 'axios';
 const initialUser = {
     credentials: {
         username: '',
-        password: '',
-        email: ''
+        email: '',
+        password: ''
     },
     error: ''
 }
