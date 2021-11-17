@@ -3,50 +3,44 @@ import styled from 'styled-components';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { v4 as uuidv4 } from 'uuid';
 
-const initialFormValues = {
+const initialEventData = {
+    name: "",
     date: "",
-    food: [],
+    foodList: [],
     time: "",
     location: "",
     email: ""
 };
-const initialEvents = [];
-const initialFoodList = [];
+const initialEventList = [];
+// const initialFoodList = [];
 
 const CreateEvent = () => {
-    const [formValues, setFormValues] = useState(initialFormValues);
-    const [events, setEvents] = useState(initialEvents);
-    const [list, setList] = useState(initialFoodList);
-    const [name, setName] = useState('');
+    const [eventList, setEventList] = useState(initialEventList); // data for list of all events
+    const [eventData, setEventData] = useState(initialEventData); // data for the new single event to be added
+    // const [list, setList] = useState(); // should be able to store list inside event state
+    // const [name, setName] = useState('');
 
-    const postNewEvent = newEvent => {
+    const addEvent = () => {
         axiosWithAuth() // this function contains a "baseURL" of "https://potluckplanner2.herokuapp.com/api"
-            .post('/events', newEvent)
-            .then(res => {
-                setEvents([res.data, ...events]);
+            .post('/events', eventData)
+            .then(res => { // retrieve data of added event, 
+                setEventList([res.data, ...eventList]); // add event to event list -- we shouldn't need to do this? update our local event list? 
             })
             .catch(err => console.error(err))
             .finally(() => {
-                setFormValues(initialFormValues);
+                setEventData(initialEventData); // reset the form
             })
     };
 
     const onSubmit = event => {
         event.preventDefault();
         
-        const newEvent = {
-            date: formValues.date,
-            food: list,
-            time: formValues.time,
-            location: formValues.location,
-            email: formValues.email
-        };
-        postNewEvent(newEvent);
+        addEvent(eventData);
     }
 
     const inputChange = (name, value) => {
         //validate(name, value);
-        setFormValues({ ...formValues, [name]: value });
+        setEventData({ ...eventData, [name]: value });
     };
 
     const onChange = event => {
@@ -82,7 +76,7 @@ const CreateEvent = () => {
                             type="text"
                             id="eventName"
                             name="eventName"
-                            value={formValues.name}
+                            value={eventData.name}
                             required
                             onChange={onChange}
                         />
@@ -92,7 +86,7 @@ const CreateEvent = () => {
                             type="date"
                             id="date"
                             name="date"
-                            value={formValues.date}
+                            value={eventData.date}
                             required
                             onChange={onChange}
                         />
@@ -102,7 +96,7 @@ const CreateEvent = () => {
                             type="time"
                             id="time"
                             name="time"
-                            value={formValues.time}
+                            value={eventData.time}
                             onChange={onChange}
                         />
                     </label>
@@ -111,7 +105,7 @@ const CreateEvent = () => {
                             type="text"
                             id="location"
                             name="location"
-                            value={formValues.location}
+                            value={eventData.location}
                             onChange={onChange}
                         />
                     </label>
@@ -136,7 +130,7 @@ const CreateEvent = () => {
                         type="email"
                         id="guest"
                         name="guest"
-                        value={formValues.email}
+                        value={eventData.email}
                         onChange={onChange}
                     />
                 </label>
