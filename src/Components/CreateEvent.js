@@ -31,7 +31,9 @@ const CreateEvent = () => {
             })
     };
 
-    const formSubmit = () => {
+    const onSubmit = event => {
+        event.preventDefault();
+        
         const newEvent = {
             date: formValues.date,
             food: list,
@@ -40,11 +42,6 @@ const CreateEvent = () => {
             email: formValues.email
         };
         postNewEvent(newEvent);
-    };
-
-    const onSubmit = event => {
-        event.preventDefault();
-        formSubmit();
     }
 
     const inputChange = (name, value) => {
