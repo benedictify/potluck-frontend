@@ -11,11 +11,9 @@ const initialEventData = {
     location: "",
     email: ""
 };
-const initialEventList = [];
-// const initialFoodList = [];
 
-const CreateEvent = () => {
-    const [eventList, setEventList] = useState(initialEventList); // data for list of all events
+const CreateEvent = (props) => {
+    const { eventsList, setEventsList } = props;
     const [eventData, setEventData] = useState(initialEventData); // data for the new single event to be added
     // const [list, setList] = useState(); // should be able to store list inside event state
     // const [name, setName] = useState('');
@@ -24,7 +22,7 @@ const CreateEvent = () => {
         axiosWithAuth() // this function contains a "baseURL" of "https://potluckplanner2.herokuapp.com/api"
             .post('/events', eventData)
             .then(res => { // retrieve data of added event, 
-                setEventList([res.data, ...eventList]); // add event to event list -- we shouldn't need to do this? update our local event list? 
+                setEventsList([...eventsList, res.data]);
             })
             .catch(err => console.error(err))
             .finally(() => {
@@ -34,7 +32,7 @@ const CreateEvent = () => {
 
     const onSubmit = event => {
         event.preventDefault();
-        
+
         addEvent(eventData);
     }
 

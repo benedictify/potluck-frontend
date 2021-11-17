@@ -28,6 +28,8 @@ const initialUsers = [];
 const initialDisabled = true;
 
 function App() {
+	const [eventsList, setEventsList] = useState([]); // list of all events
+
   // Const values for SignUpForm vv
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
@@ -84,15 +86,15 @@ function App() {
   }, [formValues])
   // ^^ Values and functions for SignUpForm
 
-
-
   return (
     <div className="App">
       <div className='content'> {/* this div pushes the footer down*/}
         <Header />
 
         <Switch>
-          <Route path='/create-event' component={CreateEvent}></Route>
+          <Route path='/events/new' >
+						<CreateEvent eventsList={eventsList} setEventsList={setEventsList} />
+					</Route>
           
           <Route path='/events' component={EventsDashboard}></Route>
           
