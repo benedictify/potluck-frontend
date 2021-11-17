@@ -30,8 +30,11 @@ const Middle = () => {
     width: 40vw;
   }
   .button-homepage {
+    align-items: center;
     margin-top: 50%;
+    font-size: 26px;
     width: 135%;
+    height: 60%;
     padding: 5%;
     border-radius: 6px;
     background-color: green;
