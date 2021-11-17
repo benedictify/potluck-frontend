@@ -61,7 +61,9 @@ a:visited {
   text-decoration: none;
   color: white;
 }
-
+/* * {
+  border:red 1px solid;
+} */
 
 a:active {
   text-decoration: underline;

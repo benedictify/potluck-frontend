@@ -12,6 +12,7 @@ import SignUpForm from './Components/SignUp';
 import EventsDashboard from './Components/EventsDashboard';
 import CreateEvent from './Components/CreateEvent';
 import YourEvents from './Components/YourEvents';
+import PickFood from './Components/PickFood';
 import PrivateRoute from './Components/PrivateRoute';
 import Logout from './Components/Logout';
 
@@ -95,6 +96,10 @@ function App() {
         <Header />
 
         <Switch>
+          <Route path='/event-accepted' component={PickFood}></Route>
+
+          <Route path='/your-events' component={YourEvents}></Route>
+
           <PrivateRoute path='/your-events' component={YourEvents}></PrivateRoute>
 
           <PrivateRoute path='/create-event' component={CreateEvent}></PrivateRoute>

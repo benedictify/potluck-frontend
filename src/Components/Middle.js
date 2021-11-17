@@ -16,9 +16,12 @@ const Middle = () => {
     justify-content: center;
     align-items: center;
   }
+  .left h1 {
+    font-size: 48px;
+  }
   .left h3 {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 28px;
   }
   .right {
     width: 50%;
@@ -32,11 +35,11 @@ const Middle = () => {
     padding: 5%;
     border-radius: 6px;
     background-color: green;
+    color:white;
   }
   .button-homepage:hover {
     /* opacity: 80%; */
     border:2px black solid;
-    color: black;
   }
   `
 
