@@ -18,41 +18,52 @@ const StyledEventInvite = styled.div
 const StyledEventInviteText = styled.div 
 `   text-align: left;
 `
+const StyledInviteContainer = styled.div 
+`   display: flex;
+    justify-content: center;
+    margin: 0;
+`
 
 const YourEvents = () => {
     return (
         <div>
             <StyledHeader className="headerBanner">
-                    <h2>Create Event</h2>
+                    <h2>Your Events</h2>
             </StyledHeader>
             <div>
                 <div id="openInvitations">
                     <h3>Open Invitations</h3>
                     <p>Note that you can only accept one invitation at a time.</p>
-                    <StyledEventInvite className="eventInvitation">
-                        <StyledEventInviteText>
-                            <p><b>Event Name</b></p>
-                            <p>Event Date</p>
-                            <p>Event Time</p>
-                            <p>Event Location</p>
-                        </StyledEventInviteText>
-                        <div className="acceptDeclineButtons">
-                            <Link to="/acceptedEventID" id="acceptButton">ACCEPT</Link>
-                            <Link to="/your-events" id="declineButton">DECLINE</Link>
-                        </div>
-                    </StyledEventInvite>
+                    <StyledInviteContainer id="invitationsContainer">
+                        <StyledEventInvite className="eventInvitation">
+                            <StyledEventInviteText>
+                                {/* vvv This is just filler data - we will need to actually pull this data for the logged in user somehow */}
+                                <p><b>Event Name</b></p>
+                                <p>Event Date</p>
+                                <p>Event Time</p>
+                                <p>Event Location</p>
+                            </StyledEventInviteText>
+                            <div className="acceptDeclineButtons">
+                                <Link to="/acceptedEventID" id="acceptButton">ACCEPT</Link>
+                                <Link to="/your-events" id="declineButton">DECLINE</Link>
+                            </div>
+                        </StyledEventInvite>
+                    </StyledInviteContainer>
                 </div>
                 
                 <div id="acceptedInvitations">
                     <h3>Accepted Invitation</h3>
-                    <StyledEventInvite className="eventInvitation">
-                        <StyledEventInviteText>
-                            <p><b>Event Name</b></p>
-                            <p>Event Date</p>
-                            <p>Event Time</p>
-                            <p>Event Location</p>
-                        </StyledEventInviteText>
-                    </StyledEventInvite>
+                    {/* vvv This is just filler data - we will need to actually pull this data for the logged in user somehow */}
+                    <StyledInviteContainer>
+                        <StyledEventInvite className="eventInvitation">
+                            <StyledEventInviteText>
+                                <p><b>Event Name</b></p>
+                                <p>Event Date</p>
+                                <p>Event Time</p>
+                                <p>Event Location</p>
+                            </StyledEventInviteText>
+                        </StyledEventInvite>
+                    </StyledInviteContainer>
                 </div>
                 
             </div>
