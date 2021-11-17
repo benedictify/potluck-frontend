@@ -13,6 +13,8 @@ import EventsDashboard from './Components/EventsDashboard';
 import CreateEvent from './Components/CreateEvent';
 import YourEvents from './Components/YourEvents';
 import PickFood from './Components/PickFood';
+import PrivateRoute from './Components/PrivateRoute';
+import Logout from './Components/Logout';
 
 
 // SignUpForm Value Setup
@@ -98,28 +100,20 @@ function App() {
 
           <Route path='/your-events' component={YourEvents}></Route>
 
-          <Route path='/create-event' component={CreateEvent}></Route>
+          <PrivateRoute path='/your-events' component={YourEvents}></PrivateRoute>
+
+          <PrivateRoute path='/create-event' component={CreateEvent}></PrivateRoute>
           
-          <Route path='/events' component={EventsDashboard}></Route>
+          <PrivateRoute path='/events' component={EventsDashboard}></PrivateRoute>
+
+          <PrivateRoute path='/logout' component={Logout}></PrivateRoute>
           
           <Route path='/signup'>
-            <SignUpForm 
-              formValues={formValues}
-              inputChange={inputChange}
-              formSubmit={formSubmit}
-              disabled={disabled}
-              formErrors={formErrors}
-            />
+            <SignUpForm />
           </Route>
           
           <Route path='/login'>
-            <LoginForm 
-              formValues={formValues}
-              inputChange={inputChange}
-              formSubmit={formSubmit}
-              disabled={disabled}
-              formErrors={formErrors}
-            />
+            <LoginForm />
           </Route>
           <Route exact path='/'>
             <Middle />
