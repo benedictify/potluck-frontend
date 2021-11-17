@@ -112,9 +112,11 @@ a:visited {
 }
 
 /* Create Event */
-#eventForm, #itemList, #guestList {
+#itemList, #guestList {
   display: flex;
   flex-direction: column;
+  height: 50%;
+  text-align: left;
 }
 
 #eventSubmit {
@@ -124,10 +126,29 @@ a:visited {
   border: none;
   border-radius: 5px;
 }
-/* 
+
 #listContainer {
-  width: 80%;
-} */
+  width: 60%;
+  margin: 0 5%;
+}
+
+#testDiv {
+  display: flex;
+}
+.DTL h4 {
+  margin: 0 0 2%;
+}
+
+.DTL label {
+  margin: 1% 0;
+}
+
+#listContainer h4 {
+  margin: 0;
+}
+#listContainer p {
+  margin: 1% 0 2%;
+}
 
 
 
