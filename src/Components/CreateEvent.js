@@ -1,19 +1,19 @@
 import { React, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import {    v4 as uuidv4    } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
-const StyledHeader = styled.div 
-`   background-image: url('https://hips.hearstapps.com/ell.h-cdn.co/assets/15/52/1450738482-elle-potluck-04-getty.jpg');
-background-size: cover;
-background-position: center;
-`
+const StyledHeader = styled.div`
+	background-image: url('https://hips.hearstapps.com/ell.h-cdn.co/assets/15/52/1450738482-elle-potluck-04-getty.jpg');
+	background-size: cover;
+	background-position: center;
+`;
 
-const StyledDTL = styled.div 
-`   display: flex;
+const StyledDTL = styled.div`
+	display: flex;
     flex-direction: column;
     margin: 3%;
-`
+`;
 
 const StyledFood = styled.ul`
     list-style-type: none;
@@ -21,11 +21,12 @@ const StyledFood = styled.ul`
     width: 50%;
     height: 20vh;
 `;
+
 const StyledDiv = styled.div`
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    align-items: center;
+display: flex;
+justify-content: center;
+height: 100%;
+align-items: center;
 `;
 
 const initialFormValues = {
@@ -38,22 +39,23 @@ const initialFormValues = {
 const initialEvents = [];
 const initialFoodList = [];
 
-
 const CreateEvent = () => {
     const [formValues, setFormValues] = useState(initialFormValues);
     const [events, setEvents] = useState(initialEvents);
+    const [list, setList] = useState(initialFoodList);
+    const [name, setName] = useState('');
 
     const postNewEvent = newEvent => {
         axios.post('https://reqres.in/api/events', newEvent)
-          .then(res => {
-              console.log(res.data)
-            setEvents([res.data, ...events]);
-          })
-          .catch(err => console.error(err))
-          .finally(() => {
-            setFormValues(initialFormValues);
-          })
-      };
+            .then(res => {
+                console.log(res.data)
+                setEvents([res.data, ...events]);
+            })
+            .catch(err => console.error(err))
+            .finally(() => {
+                setFormValues(initialFormValues);
+            })
+    };
 
     const formSubmit = () => {
         const newEvent = {
@@ -64,7 +66,7 @@ const CreateEvent = () => {
             email: formValues.email
         }
         postNewEvent(newEvent);
-      };
+    };
 
     const onSubmit = event => {
         event.preventDefault();
@@ -73,7 +75,7 @@ const CreateEvent = () => {
 
     const inputChange = (name, value) => {
         //validate(name, value);
-        setFormValues({ ...formValues, [name]: value});
+        setFormValues({ ...formValues, [name]: value });
     };
 
     const onChange = event => {
@@ -81,9 +83,7 @@ const CreateEvent = () => {
         const realValue = type === 'checkbox' ? checked : value;
         inputChange(name, realValue);
     }
-// Food List
-    const [list, setList] = useState(initialFoodList);
-    const [name, setName] = useState('');
+    
 
     const handleChange = (event) => {
         //track input field's state
@@ -92,58 +92,54 @@ const CreateEvent = () => {
 
     const handleAdd = () => {
         //add item
-        const newList = list.concat({   name, id: uuidv4()    });
+        const newList = list.concat({ name, id: uuidv4() });
 
         setList(newList);
 
         setName('');
     }
 
-
-
-
-
     return (
         <div>
             <StyledHeader className="headerBanner">
-                    <h2>Create Event</h2>
+                <h2>Create Event</h2>
             </StyledHeader>
             <form onSubmit={onSubmit}>
                 <StyledDTL>
                     <label>Event Name
-                        <input 
-                            type="text" 
-                            id="eventName" 
-                            name="eventName" 
-                            value={formValues.name} 
-                            required 
+                        <input
+                            type="text"
+                            id="eventName"
+                            name="eventName"
+                            value={formValues.name}
+                            required
                             onChange={onChange}
                         />
                     </label>
                     <label>Date
-                        <input 
-                            type="date" 
-                            id="date" 
-                            name="date" 
-                            value={formValues.date} 
-                            required 
+                        <input
+                            type="date"
+                            id="date"
+                            name="date"
+                            value={formValues.date}
+                            required
                             onChange={onChange}
                         />
                     </label>
                     <label>Time
-                        <input 
-                            type="time" 
-                            id="time" 
-                            name="time" 
+                        <input
+                            type="time"
+                            id="time"
+                            name="time"
                             value={formValues.time}
                             onChange={onChange}
                         />
                     </label>
                     <label>Location
-                        <input 
-                            type="text" 
-                            id="location" 
-                            name="location" 
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
                             value={formValues.location}
                             onChange={onChange}
                         />
@@ -165,20 +161,20 @@ const CreateEvent = () => {
                 </StyledDiv>
 
                 <label>Guest Invitations
-                    <input 
-                        type="email" 
-                        id="guest" 
-                        name="guest" 
+                    <input
+                        type="email"
+                        id="guest"
+                        name="guest"
                         value={formValues.email}
                         onChange={onChange}
                     />
                 </label>
-                <input 
-                    type="submit" 
+                <input
+                    type="submit"
                     value="Invite Guest"
                 />
 
-                <input type="submit" value="Create Event"/>
+                <input type="submit" value="Create Event" />
             </form>
         </div>
     )
