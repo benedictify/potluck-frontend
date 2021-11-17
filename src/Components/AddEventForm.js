@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { v4 as uuidv4 } from 'uuid';
@@ -13,14 +13,14 @@ const initialEventData = {
     email: ""
 };
 
-const CreateEvent = (props) => {
+const AddEventForm = (props) => {
     const { eventsList, setEventsList } = props;
     const [eventData, setEventData] = useState(initialEventData); // data for the new single event to be added
-    // const [list, setList] = useState(); // should be able to store list inside event state
+    // const [list, setList] = useState(); // now storing foods list inside event state
     // const [name, setName] = useState('');
 
     const addEvent = () => {
-        axiosWithAuth() // this function contains a "baseURL" of "https://potluckplanner2.herokuapp.com/api, so whatever's below will append onto baseURL"
+        axiosWithAuth() // this function contains a "baseURL" of "https://potluckplanner2.herokuapp.com/api", so whatever's below will append onto "baseURL"
             .post('/events', eventData)
             .then(res => { // retrieve data of added event, 
                 const newEvent = res.data;
@@ -51,7 +51,7 @@ const CreateEvent = (props) => {
 
     const handleChange = (event) => {
         // sets the changed field to that field's value
-        setEventData({[event.target.name]: event.target.value});
+        setEventData({ [event.target.name]: event.target.value });
     };
 
     const handleAdd = () => {
@@ -144,7 +144,7 @@ const CreateEvent = (props) => {
     )
 };
 
-export default CreateEvent;
+export default AddEventForm;
 
 const StyledHeader = styled.div`
 	background-image: url('https://hips.hearstapps.com/ell.h-cdn.co/assets/15/52/1450738482-elle-potluck-04-getty.jpg');

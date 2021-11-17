@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from 'react-router-dom';
-import axios from "axios";
 import formSchema from './validation/formSchema';
 import * as yup from 'yup';
 
@@ -10,7 +9,7 @@ import Footer from './Components/Footer';
 import Middle from './Components/Middle';
 import SignUpForm from './Components/SignUp';
 import EventsDashboard from './Components/EventsDashboard';
-import CreateEvent from './Components/CreateEvent';
+import AddEventForm from './Components/AddEventForm';
 
 import './App.css';
 
@@ -43,15 +42,17 @@ function App() {
     //         .catch(err => console.error(err))
     // };
 
-    const postNewUser = newUser => {
-        axios.post('https://potluckplanner2.herokuapp.com/api/auth/register', newUser)
-            .then(res => {
-            })
-            .catch(err => console.error(err))
-        // .finally(() => {
-        //     setUser(initialUser);
-        // })
-    };
+        // this is now being done in SignUpForm component
+    // const postNewUser = newUser => {
+    //     axios.post('https://potluckplanner2.herokuapp.com/api/auth/register', newUser)
+    //         .then(res => {
+    //             // setUsers({...users, newUser})
+    //         })
+    //         .catch(err => console.error(err))
+    //     // .finally(() => {
+    //     //     setUser(initialUser);
+    //     // })
+    // };
 
     const validate = (name, value) => {
         yup.reach(formSchema, name)
@@ -87,7 +88,7 @@ function App() {
 
                 <Switch>
                     <Route path='/events/new' >
-                        <CreateEvent eventsList={eventsList} setEventsList={setEventsList} />
+                        <AddEventForm eventsList={eventsList} setEventsList={setEventsList} />
                     </Route>
 
                     <Route path='/events' component={EventsDashboard}></Route>
