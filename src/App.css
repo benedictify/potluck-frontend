@@ -84,15 +84,34 @@ a:active {
   text-shadow: 2px 2px 4px #190000;
 }
 
-.eventButton {
+/* YourEvents */
+.eventButton, #acceptButton {
   background-color: green;
+}
+
+#declineButton {
+  background-color: darkgrey;
+}
+#declineButton:hover {
+  background-color: grey;
+}
+
+.eventButton, #acceptButton, #declineButton {
   width: 15%;
   margin: 1% auto;
   border-radius: 5px;
 }
 
-.eventButton:hover {
+.eventButton:hover, #acceptButton:hover {
   background-color: darkgreen;
+}
+
+#acceptButton, #declineButton {
+  margin: 1%;
+}
+
+.acceptDeclineButtons {
+  margin-bottom: 5%;
 }
 
 
