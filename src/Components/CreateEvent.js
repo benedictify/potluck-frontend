@@ -15,7 +15,7 @@ const StyledDTL = styled.div
     margin: 3%;
 `
 
-const StyledFood = styled.ul`
+const StyledList = styled.ul`
     list-style-type: none;
     border: solid black 1px;
     width: 50%;
@@ -29,14 +29,14 @@ const StyledDiv = styled.div`
 `;
 
 const initialFormValues = {
+    eventName: "",
     date: "",
     food: [],
     time: "",
     location: "",
-    email: ""
+    email: []
 };
 const initialEvents = [];
-const initialFoodList = [];
 
 
 const CreateEvent = () => {
@@ -57,11 +57,12 @@ const CreateEvent = () => {
 
     const formSubmit = () => {
         const newEvent = {
+            name: formValues.eventName,
             date: formValues.date,
-            food: list,
+            food: foodList,
             time: formValues.time,
             location: formValues.location,
-            email: formValues.email
+            email: guestList
         }
         postNewEvent(newEvent);
       };
@@ -82,26 +83,41 @@ const CreateEvent = () => {
         inputChange(name, realValue);
     }
 // Food List
-    const [list, setList] = useState(initialFoodList);
-    const [name, setName] = useState('');
+    const initialFoodList = [];    
+    const [foodList, setFoodList] = useState(initialFoodList);
+    const [foodName, setFoodName] = useState('');
 
-    const handleChange = (event) => {
+    const handleChangeFood = (event) => {
         //track input field's state
-        setName(event.target.value);
+        setFoodName(event.target.value);
     }
 
-    const handleAdd = () => {
+    const handleAddFood = () => {
         //add item
-        const newList = list.concat({   name, id: uuidv4()    });
+        const newFoodList = foodList.concat({   foodName, id: uuidv4()    });
 
-        setList(newList);
+        setFoodList(newFoodList);
 
-        setName('');
+        setFoodName('');
+    }
+// Guest List
+    const initialGuestList = [];    
+    const [guestList, setGuestList] = useState(initialGuestList);
+    const [guestName, setGuestName] = useState('');
+
+    const handleChangeGuest = (event) => {
+        //track input field's state
+        setGuestName(event.target.value);
     }
 
+    const handleAddGuest = () => {
+        //add item
+        const newGuestList = guestList.concat({   guestName, id: uuidv4()    });
 
+        setGuestList(newGuestList);
 
-
+        setGuestName('');
+    }
 
     return (
         <div>
@@ -115,7 +131,7 @@ const CreateEvent = () => {
                             type="text" 
                             id="eventName" 
                             name="eventName" 
-                            value={formValues.name} 
+                            value={formValues.eventName} 
                             required 
                             onChange={onChange}
                         />
@@ -152,19 +168,33 @@ const CreateEvent = () => {
 
                 <StyledDiv>
                     <div>
-                        <input type="text" value={name} onChange={handleChange} />
-                        <button type="button" onClick={handleAdd}>
+                        <input type="text" value={foodName} onChange={handleChangeFood} />
+                        <button type="button" onClick={handleAddFood}>
                             Add food to list
                         </button>
                     </div>
-                    <StyledFood>
-                        {list.map((item) => (
-                            <li key={item.id}>{item.name}</li>
+                    <StyledList>
+                        {foodList.map((item) => (
+                            <li key={item.id}>{item.foodName}</li>
                         ))}
-                    </StyledFood>
+                    </StyledList>
                 </StyledDiv>
-
-                <label>Guest Invitations
+                
+                <StyledDiv>
+                    <div>
+                        <input type="text" value={guestName} onChange={handleChangeGuest} />
+                        <button type="button" onClick={handleAddGuest}>
+                            Add guest to list
+                        </button>
+                    </div>
+                    <StyledList>
+                        {guestList.map((item) => (
+                            <li key={item.id}>{item.guestName}</li>
+                        ))}
+                    </StyledList>
+                </StyledDiv>
+               
+                {/* <label>Guest Invitations
                     <input 
                         type="email" 
                         id="guest" 
@@ -176,7 +206,7 @@ const CreateEvent = () => {
                 <input 
                     type="submit" 
                     value="Invite Guest"
-                />
+                /> */}
 
                 <input type="submit" value="Create Event"/>
             </form>
