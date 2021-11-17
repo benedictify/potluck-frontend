@@ -3,23 +3,24 @@ import { useHistory } from 'react-router';
 import styled from 'styled-components'
 import axios from 'axios';
 
-const initialState = {
+const initialUser = {
     credentials: {
         username: '',
-        password: ''
+        password: '',
+        email: ''
     },
     error: ''
 }
 
-const SignUpForm = () => {
-    const [state, setState] = useState(initialState);
+// creates new User, posts to server
+const SignUpForm = () => { 
+    const [user, setUser] = useState(initialUser);
     const { push } = useHistory();
 
-
     const handleChange = e => {
-        setState({
+        setUser({
             credentials: {
-                ...state.credentials,
+                ...user.credentials,
                 [e.target.name]: e.target.value
             }
         });
@@ -28,14 +29,14 @@ const SignUpForm = () => {
     const handleSignUp = e => {
         e.preventDefault();
 
-        axios.post('https://potluckplanner2.herokuapp.com/api/auth/register', state.credentials)
+        axios.post('https://potluckplanner2.herokuapp.com/api/auth/register', user.credentials)
             .then(resp => {
                 push('/login');
             })
             .catch(err => {
                 console.log(err);
-                setState({
-                    ...state,
+                setUser({
+                    ...user,
                     error: 'Registration was not successful, please try again.'
                 })
             })
@@ -57,7 +58,18 @@ const SignUpForm = () => {
                                 id="username"
                                 type="Text"
                                 name="username"
-                                value={state.credentials.username}
+                                value={user.credentials.username}
+                                onChange={handleChange}
+                            />
+
+                            <LineBreak />
+                            
+                            <Label>Email</Label>
+                            <Input
+                                id="email"
+                                type="Text"
+                                name="email"
+                                value={user.credentials.email}
                                 onChange={handleChange}
                             />
 
@@ -68,10 +80,10 @@ const SignUpForm = () => {
                                 id="password"
                                 type="password"
                                 name="password"
-                                value={state.credentials.password}
+                                value={user.credentials.password}
                                 onChange={handleChange}
                             />
-                            <p id="error">{state.error}</p>
+                            <p id="error">{user.error}</p>
                             <Button id="submit">Sign Up</Button>
                         </form>
                     </div>
