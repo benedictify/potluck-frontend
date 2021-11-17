@@ -128,9 +128,9 @@ const CreateEvent = () => {
             <StyledHeader className="headerBanner">
                     <h2>Create Event</h2>
             </StyledHeader>
-            <h3>Create an event by filling in each of the fields below!</h3>
+            <h3 id="createTagline">Create an event by filling in each of the fields below!</h3>
             <form onSubmit={onSubmit} id="eventForm">
-                <div id="testDiv">
+                <div id="formContent">
                     <StyledDTL className="DTL">
                         <h4>Event Details</h4>
                         <label>Event Name&nbsp;
