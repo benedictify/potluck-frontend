@@ -25,7 +25,7 @@ width: 100%;
 const Footer = () => {
     return (
         <StyledFooter>   
-            <StyledNavbar id="navbar">
+            <StyledNavbar id="footerNav">
                 <Link to="/" >HOME</Link>
                 <Link to="/login">LOGIN</Link>
                 <Link to="/signup">SIGN UP</Link>
