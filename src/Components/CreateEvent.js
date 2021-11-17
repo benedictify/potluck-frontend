@@ -194,7 +194,8 @@ const CreateEvent = () => {
                         <StyledDiv id="guestList">
                             <div>
                                 <h4>Guest List</h4>
-                                <p>Enter a guest's PotluckPlanner username, then click the button to add them to the guest list.<br/><i>NOTE:</i>You must enter their username correctly, otherwise they will not receive their invitation.</p>
+                                <p>Enter a guest's PotluckPlanner username, then click the button to add them to the guest list.</p>
+                                <p id="note"><i>NOTE: </i>You must enter their username correctly, otherwise they will not receive their invitation.</p>
                                 <input type="text" value={guestName} onChange={handleChangeGuest} placeholder="Username"/>
                                 <button type="button" onClick={handleAddGuest}>
                                     Add guest
