@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import {Redirect} from 'react-router-dom';
 import styled from 'styled-components';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { v4 as uuidv4 } from 'uuid';
@@ -19,22 +20,23 @@ const CreateEvent = (props) => {
     // const [name, setName] = useState('');
 
     const addEvent = () => {
-        axiosWithAuth() // this function contains a "baseURL" of "https://potluckplanner2.herokuapp.com/api"
+        axiosWithAuth() // this function contains a "baseURL" of "https://potluckplanner2.herokuapp.com/api, so whatever's below will append onto baseURL"
             .post('/events', eventData)
             .then(res => { // retrieve data of added event, 
-                setEventsList([...eventsList, res.data]);
+                const newEvent = res.data;
+                // add event to local events list in App state
+                setEventsList([...eventsList, newEvent]);
+                // instead of resetting the form, we'll redirect to the display page for the event we just added
+                return <Redirect to={`/events/${newEvent.id}`} />
             })
             .catch(err => console.error(err))
-            .finally(() => {
-                setEventData(initialEventData); // reset the form
-            })
     };
 
     const onSubmit = event => {
         event.preventDefault();
 
         addEvent(eventData);
-    }
+    };
 
     const inputChange = (name, value) => {
         //validate(name, value);
@@ -45,13 +47,12 @@ const CreateEvent = (props) => {
         const { name, value, checked, type } = event.target;
         const realValue = type === 'checkbox' ? checked : value;
         inputChange(name, realValue);
-    }
-
+    };
 
     const handleChange = (event) => {
-        //track input field's state
-        setName(event.target.value);
-    }
+        // sets the changed field to that field's value
+        setEventData({[event.target.name]: event.target.value});
+    };
 
     const handleAdd = () => {
         //add item
@@ -60,7 +61,7 @@ const CreateEvent = (props) => {
         setList(newList);
 
         setName('');
-    }
+    };
 
     return (
         <div>
