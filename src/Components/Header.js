@@ -36,6 +36,7 @@ const Header = () => {
                 <Link to="/login" className="headernav">LOGIN</Link>
                 <Link to="/signup" className="headernav">SIGN UP</Link>
                 <Link to="/events" className="headernav">EVENTS</Link>
+                <Link to="/logout" className="headernav">LOGOUT</Link>
             </StyledNavbar>
         </StyledHeader>
     )
