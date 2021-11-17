@@ -17,7 +17,7 @@ const Middle = () => {
     align-items: center;
   }
   .left h1 {
-    font-size 48px;
+    font-size: 48px;
   }
   .left h3 {
     text-decoration: none;

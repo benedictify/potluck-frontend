@@ -12,6 +12,7 @@ import SignUpForm from './Components/SignUp';
 import EventsDashboard from './Components/EventsDashboard';
 import CreateEvent from './Components/CreateEvent';
 import YourEvents from './Components/YourEvents';
+import PickFood from './Components/PickFood';
 
 
 // SignUpForm Value Setup
@@ -93,6 +94,8 @@ function App() {
         <Header />
 
         <Switch>
+          <Route path='/event-accepted' component={PickFood}></Route>
+
           <Route path='/your-events' component={YourEvents}></Route>
 
           <Route path='/create-event' component={CreateEvent}></Route>
