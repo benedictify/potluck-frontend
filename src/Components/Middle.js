@@ -40,7 +40,7 @@ const Middle = () => {
     background-image: url(${image});
     height: 100%;
     width: 40%;
-    margin-right: 5%;
+    margin-right: 3%;
   }
 
   .button-homepage {

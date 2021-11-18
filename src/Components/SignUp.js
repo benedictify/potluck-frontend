@@ -110,8 +110,12 @@ const ComponentContainer = styled.div`
 const ModalContainer = styled.div`
     width: 500px;
     background: white;
-    padding: 2rem;
+    padding: 1rem 2rem 4rem;
     text-align: center;
+
+    & h2 {
+        margin-top: 0;
+    }
 `
 
 const Label = styled.label`

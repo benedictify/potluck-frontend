@@ -112,46 +112,48 @@ const AddEventForm = (props) => {
                 <div id="formContent">
                     <StyledDTL className="DTL">
                         <h4>Event Details</h4>
-                        <label>Event Name&nbsp;
-                            <input
-                                type="text"
-                                id="eventName"
-                                name="eventName"
-                                value={eventData.eventName}
-                                required
-                                onChange={onChange}
-                                placeholder="Event Name"
-                            />
-                        </label>
-                        <label>Date&nbsp;
-                            <input
-                                type="date"
-                                id="date"
-                                name="date"
-                                value={eventData.date}
-                                required
-                                onChange={onChange}
-                            />
-                        </label>
-                        <label>Time&nbsp;
-                            <input
-                                type="time"
-                                id="time"
-                                name="time"
-                                value={eventData.time}
-                                onChange={onChange}
-                            />
-                        </label>
-                        <label>Location&nbsp;
-                            <input
-                                type="text"
-                                id="location"
-                                name="location"
-                                value={eventData.location}
-                                onChange={onChange}
-                                placeholder="Location"
-                            />
-                        </label>
+                        <StyledDetails>
+                            <label className="topP">Event Name&nbsp;
+                                <input
+                                    type="text"
+                                    id="eventName"
+                                    name="eventName"
+                                    value={eventData.eventName}
+                                    required
+                                    onChange={onChange}
+                                    placeholder="Event Name"
+                                />
+                            </label>
+                            <label>Date&nbsp;
+                                <input
+                                    type="date"
+                                    id="date"
+                                    name="date"
+                                    value={eventData.date}
+                                    required
+                                    onChange={onChange}
+                                />
+                            </label>
+                            <label>Time&nbsp;
+                                <input
+                                    type="time"
+                                    id="time"
+                                    name="time"
+                                    value={eventData.time}
+                                    onChange={onChange}
+                                />
+                            </label>
+                            <label>Location&nbsp;
+                                <input
+                                    type="text"
+                                    id="location"
+                                    name="location"
+                                    value={eventData.location}
+                                    onChange={onChange}
+                                    placeholder="Location"
+                                />
+                            </label>
+                        </StyledDetails>
                     </StyledDTL>
                     <div id="listContainer">
                         <StyledDiv id="itemList">
@@ -210,16 +212,17 @@ const StyledDTL = styled.div`
     margin: 3%;
 `;
 
-const StyledFood = styled.ul`
-    list-style-type: none;
-    border: solid black 1px;
-    width: 50%;
-    height: 20vh;
+const StyledDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
 `;
 
-const StyledDiv = styled.div`
-display: flex;
-justify-content: center;
-height: 100%;
-align-items: center;
+const StyledDetails = styled.div`
+    border: solid lightgrey 1px;
+    padding: 5%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 `;
