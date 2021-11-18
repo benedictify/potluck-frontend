@@ -74,8 +74,9 @@ const AddEventForm = (props) => {
     }
 
     // Guest List
-    const initialGuestList = [];
-    const [guestList, setGuestList] = useState(initialGuestList);
+    // const initialGuestList = [];
+    // const [guestList, setGuestList] = useState(initialGuestList);
+    //
     const [guestName, setGuestName] = useState('');
 
     const handleChangeGuest = (event) => {
@@ -85,11 +86,16 @@ const AddEventForm = (props) => {
 
     const handleAddGuest = () => {
         //add item
-        const newGuestList = guestList.concat({ guestName, id: uuidv4() });
-
+        // const newGuestList = guestList.concat([{ guestName, id: uuidv4() }]);
         setEventData({
             ...eventData,
-            guestList: newGuestList
+            guestList: [
+                ...eventData.guestList,
+                { 
+                    guestName: guestName,
+                    id: uuidv4()
+                }
+            ]
         });
 
         setGuestName('');
@@ -174,7 +180,7 @@ const AddEventForm = (props) => {
                                 </button>
                             </div>
                             <div>
-                                {guestList.map((item) => (
+                                {eventData.guestList.map((item) => (
                                     <li key={item.id}>{item.guestName}</li>
                                 ))}
                             </div>
