@@ -14,15 +14,27 @@ const StyledInviteContainer = styled.div
 const StyledEventInvite = styled.div 
 `   display: flex;
     border: solid lightgrey 1px;
-    padding: 1%;
-    width: 40%;
+    padding: 2%;
+    width: 35%;
     border-radius: 5px;
     margin: 2% auto 4%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
 `
 const StyledEventInviteText = styled.div 
 `   text-align: left;
+
+    & p {
+        margin: 5% 0;
+    } 
+
+    & .topP {
+        margin-top: 0;
+    }
+
+    & .bottomP {
+        margin-bottom: 0;
+    }
 `
 
 const YourEvents = () => {
@@ -34,19 +46,19 @@ const YourEvents = () => {
             <div className="yourEvents">
                 <div id="openInvitations">
                     <h3>Open Invitations</h3>
-                    <p id="tagline">Note that you can only accept one invitation at a time.</p>
+                    <p id="tagline">Accept an invitation and choose an item to bring to the event.<br/><i>Note:</i> you can only accept one invitation at a time.</p>
                     <StyledInviteContainer id="invitationsContainer">
                         <StyledEventInvite className="eventInvitation">
                             <StyledEventInviteText>
                                 {/* vvv This is just filler data - we will need to actually pull this data for the logged in user somehow */}
-                                <p><b>Event Name</b></p>
-                                <p>Event Date</p>
-                                <p>Event Time</p>
-                                <p>Event Location</p>
+                                <p class="topP"><b>Event Name</b></p>
+                                <p>Date: </p>
+                                <p>Time: </p>
+                                <p class="bottomP">Location: </p>
                             </StyledEventInviteText>
-                            <div className="acceptDeclineButtons">
-                                <Link to="/acceptedEventID" id="acceptButton">ACCEPT</Link>
-                                <Link to="/your-events" id="declineButton">DECLINE</Link>
+                            <div className="yourEventButtons">
+                                <Link to="/acceptedEventID" id="acceptButton" className="topP">ACCEPT</Link>
+                                <Link to="/your-events" id="declineButton" className="bottomP">DECLINE</Link>
                             </div>
                         </StyledEventInvite>
                     </StyledInviteContainer>
@@ -59,11 +71,11 @@ const YourEvents = () => {
                     <StyledInviteContainer>
                         <StyledEventInvite className="eventInvitation">
                             <StyledEventInviteText>
-                                <p><b>Event Name</b></p>
-                                <p>Event Date</p>
-                                <p>Event Time</p>
-                                <p>Event Location</p>
-                                <p>You're bringing: Lasagna</p>
+                                <p class="topP"><b>Event Name</b></p>
+                                <p>Date: </p>
+                                <p>Time: </p>
+                                <p>Location: </p>
+                                <p class="bottomP">You're bringing: Lasagna</p>
                             </StyledEventInviteText>
                         </StyledEventInvite>
                     </StyledInviteContainer>
@@ -76,13 +88,13 @@ const YourEvents = () => {
                     <StyledInviteContainer>
                         <StyledEventInvite className="eventInvitation">
                             <StyledEventInviteText>
-                                <p><b>Event Name</b></p>
-                                <p>Event Date</p>
-                                <p>Event Time</p>
-                                <p>Event Location</p>
+                                <p class="topP"><b>Event Name</b></p>
+                                <p>Date: </p>
+                                <p>Time: </p>
+                                <p class="bottomP">Location: </p>
                             </StyledEventInviteText>
-                            <div className="editButtons">
-                                <Link to="/edit-event" id="editEventButton">EDIT</Link>
+                            <div className="yourEventButtons">
+                                <Link to="/edit-event" id="editEventButton" className="bottomP">EDIT</Link>
                             </div>
                         </StyledEventInvite>
                     </StyledInviteContainer>
