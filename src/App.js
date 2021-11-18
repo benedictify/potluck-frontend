@@ -98,7 +98,7 @@ function App() {
 
           <PrivateRoute path='/your-events' component={YourEvents}></PrivateRoute>
 
-          <PrivateRoute path='/events/new' >
+          <PrivateRoute path='/create-events' >
 						<AddEventForm eventsList={eventsList} setEventsList={setEventsList} />
 					</PrivateRoute>
           
