@@ -18,7 +18,7 @@ import Logout from './Components/Logout';
 
 import './App.css';
 
-const initialFormErrors = {
+const initialValues = {
 	username: '',
 	email: '',
 	password: ''
@@ -28,36 +28,9 @@ function App() {
 	const [eventsList, setEventsList] = useState([]); // list of all events
 
 	// Const values for SignUpForm
-	const [formValues, setFormValues] = useState();
-	const [formErrors, setFormErrors] = useState(initialFormErrors);
+	const [formValues, setFormValues] = useState(initialValues);
+	const [formErrors, setFormErrors] = useState(initialValues);
 	const [disabled, setDisabled] = useState(true);
-	// const [users, setUsers] = useState([]);
-
-	// useEffect(() => {
-	// getUsers(); 
-	// we don't need to get all users, just the one who's logging in. 
-	// the Login axios call will give us the id and other user info
-	// }, []);
-
-	// const getUsers = () => {
-	//     axios.get('https://potluckplanner2.herokuapp.com/api/users')
-	//         .then(res => {
-	//             setUsers(res.data.data);
-	//         })
-	//         .catch(err => console.error(err))
-	// };
-
-	// this is now being done in SignUpForm component
-	// const postNewUser = newUser => {
-	//     axios.post('https://potluckplanner2.herokuapp.com/api/auth/register', newUser)
-	//         .then(res => {
-	//             // setUsers({...users, newUser})
-	//         })
-	//         .catch(err => console.error(err))
-	//     // .finally(() => {
-	//     //     setUser(initialUser);
-	//     // })
-	// };
 
 	const validate = (name, value) => {
 		yup.reach(formSchema, name)
@@ -76,15 +49,6 @@ function App() {
 		validate(name, value);
 		setFormValues({ ...formValues, [name]: value });
 	};
-
-	// const formSubmit = () => {
-	// 	const newUser = {
-	// 		name: formValues.name.trim(),
-	// 		email: formValues.email,
-	// 		password: formValues.password
-	// 	}
-	// 	postNewUser(newUser);
-	// };
 
 	return (
 		<div className="App">
