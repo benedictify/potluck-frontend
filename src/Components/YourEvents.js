@@ -78,8 +78,10 @@ const YourEvents = () => {
                                 <p>Event Date</p>
                                 <p>Event Time</p>
                                 <p>Event Location</p>
-                                <Link to="/acceptedEventID" id="editEventButton">EDIT</Link>
                             </StyledEventInviteText>
+                            <div className="editButtons">
+                                <Link to="/edit-event" id="editEventButton">EDIT</Link>
+                            </div>
                         </StyledEventInvite>
                     </StyledInviteContainer>
                 </div>
