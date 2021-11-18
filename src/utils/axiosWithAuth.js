@@ -17,3 +17,5 @@ const axiosWithAuth = () => {
 		baseURL: 'https://potluckplanner2.herokuapp.com/api'
 	})
 }
+
+export default axiosWithAuth;
