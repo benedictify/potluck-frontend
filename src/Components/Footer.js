@@ -13,14 +13,11 @@ const StyledFooter = styled.div
     margin: 0;
 `
 
-
-
 const StyledNavbar = styled.div 
 `   display: flex;
 justify-content: center;
 width: 100%;
 `
-
 
 const Footer = () => {
     return (
