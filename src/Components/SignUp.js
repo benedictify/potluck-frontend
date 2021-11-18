@@ -3,87 +3,99 @@ import { useHistory } from 'react-router';
 import styled from 'styled-components'
 import axios from 'axios';
 
-const initialState = {
+const initialUser = {
     credentials: {
-      username: '',
-      password: ''
+        username: '',
+        email: '',
+        password: ''
     },
     error: ''
 }
 
-const SignUpForm = () => {
-    const [state, setState] = useState(initialState);
-    const {push} = useHistory();
-    
-    
+// creates new User, posts to server
+const SignUpForm = () => { 
+    const [user, setUser] = useState(initialUser);
+    const { push } = useHistory();
+
     const handleChange = e => {
-        setState({
-        credentials: {
-            ...state.credentials,
-            [e.target.name]: e.target.value
-        }
+        setUser({
+            credentials: {
+                ...user.credentials,
+                [e.target.name]: e.target.value
+            }
         });
     };
 
     const handleSignUp = e => {
         e.preventDefault();
 
-        axios.post('https://potluckplanner2.herokuapp.com/api/auth/register', state.credentials)
-        .then(resp=> {
-            push('/login');
-        })
-        .catch(err=> { 
-            console.log(err);
-            setState({
-                ...state,
-                error: 'Registration was not successful, please try again.'
+        axios.post('https://potluckplanner2.herokuapp.com/api/auth/register', user.credentials)
+            .then(resp => {
+                push('/login');
             })
-        })
+            .catch(err => {
+                console.log(err);
+                setUser({
+                    ...user,
+                    error: 'Registration was not successful, please try again.'
+                })
+            })
     };
 
 
-    return(
+    return (
         <div className="formContainer">
             <StyledHeader className="headerBanner">
                 <h2>Create an Account</h2>
             </StyledHeader>
             <ComponentContainer>
-        <ModalContainer>
-            <h2>Please enter the required information.</h2>
-            <div>
-                <form onSubmit={handleSignUp}>
-                <Label>Username</Label>
-                <Input
-                    id="username"
-                    type="Text"
-                    name="username"
-                    value={state.credentials.username}
-                    onChange={handleChange}
-                />
+                <ModalContainer>
+                    <h2>Please enter the required information.</h2>
+                    <div>
+                        <form onSubmit={handleSignUp}>
+                            <Label>Username</Label>
+                            <Input
+                                id="username"
+                                type="Text"
+                                name="username"
+                                value={user.credentials.username}
+                                onChange={handleChange}
+                            />
 
-                <LineBreak/>
+                            <LineBreak />
+                            
+                            <Label>Email</Label>
+                            <Input
+                                id="email"
+                                type="Text"
+                                name="email"
+                                value={user.credentials.email}
+                                onChange={handleChange}
+                            />
 
-                <Label>Password</Label>
-                <Input
-                    id="password"
-                    type="password"
-                    name="password"
-                    value={state.credentials.password}
-                    onChange={handleChange}
-                />
-                <p id="error">{state.error}</p>
-                <Button id="submit">Sign Up</Button>
-                </form>
-            </div>
-        </ModalContainer>
-    </ComponentContainer>
+                            <LineBreak />
+
+                            <Label>Password</Label>
+                            <Input
+                                id="password"
+                                type="password"
+                                name="password"
+                                value={user.credentials.password}
+                                onChange={handleChange}
+                            />
+                            <p id="error">{user.error}</p>
+                            <Button id="submit">Sign Up</Button>
+                        </form>
+                    </div>
+                </ModalContainer>
+            </ComponentContainer>
         </div>
     );
 };
 
 export default SignUpForm;
 
-const StyledHeader = styled.div `
+const StyledHeader = styled.div`
     background-image: url('https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/Dishes_at_Potluck.jpg');
 `
 

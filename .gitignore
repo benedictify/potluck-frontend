@@ -2,4 +2,5 @@
 node_modules/
 .eslintcache
 node_modules/.cache/.eslintcache
+package-lock.json
 .vscode/
