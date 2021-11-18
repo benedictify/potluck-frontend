@@ -10,6 +10,7 @@ import Middle from './Components/Middle';
 import SignUpForm from './Components/SignUp';
 import EventsDashboard from './Components/EventsDashboard';
 import AddEventForm from './Components/AddEventForm';
+import EditEvent from './Components/EditEvent';
 import YourEvents from './Components/YourEvents';
 import PickFood from './Components/PickFood';
 import PrivateRoute from './Components/PrivateRoute';
@@ -55,13 +56,15 @@ function App() {
 				<Header />
 
 				<Switch>
+		  <Route path='/edit-event' component={EditEvent}></Route>
+
           <Route path='/event-accepted' component={PickFood}></Route>
 
           <Route path='/your-events' component={YourEvents}></Route>
 
           <PrivateRoute path='/your-events' component={YourEvents}></PrivateRoute>
 
-          <PrivateRoute path='/create-events' >
+          <PrivateRoute path='/create-event' >
 						<AddEventForm eventsList={eventsList} setEventsList={setEventsList} />
 					</PrivateRoute>
           
