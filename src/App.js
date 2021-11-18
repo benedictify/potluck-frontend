@@ -10,7 +10,6 @@ import Middle from './Components/Middle';
 import SignUpForm from './Components/SignUp';
 import EventsDashboard from './Components/EventsDashboard';
 import AddEventForm from './Components/AddEventForm';
-// import CreateEvent from './Components/CreateEvent';
 import YourEvents from './Components/YourEvents';
 import PickFood from './Components/PickFood';
 import PrivateRoute from './Components/PrivateRoute';

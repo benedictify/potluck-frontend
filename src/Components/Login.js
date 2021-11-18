@@ -13,7 +13,7 @@ const initialState = {
 
 const Login = () => {
     const [state, setState] = useState(initialState);
-    const {push} = useHistory();
+    const history = useHistory();
 
     const handleChange = e => {
         setState({
@@ -30,7 +30,7 @@ const Login = () => {
         axios.post('https://potluckplanner2.herokuapp.com/api/auth/login', state.credentials)
           .then(resp=> {
             localStorage.setItem('token', resp.data.token);
-            push('/events');
+            history.push('/events');
           })
           .catch(err=> { 
             console.log(err);
@@ -49,7 +49,7 @@ const Login = () => {
                 <Label>Username</Label>
                 <Input
                     id="username"
-                    type="username"
+                    type="text"
                     name="username"
                     value={state.credentials.username}
                     onChange={handleChange}
