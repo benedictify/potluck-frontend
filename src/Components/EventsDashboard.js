@@ -23,7 +23,7 @@ const EventsDashboard = (props) => {
                 <h2>Events Dashboard</h2>
             </StyledHeader>
             <StyledEventsButtons>
-                <StyledP>To organize an event, click the "Create Event" button below! <br/><br/>If you are an organizer on an existing event and would like to edit the date, location, time, item list, or guest list of your event, click on the "Edit Event" button below. <br/><br/>To view your current event invitations, click on "Your Events."</StyledP>
+                <StyledP>To organize an event, click the "Create Event" button below! <br/><br/>To view your current event invitations or events that you have organized, click on "Your Events."</StyledP>
                 <Link to="/create-event" className="createEvent eventButton">Create Event</Link>
                 <Link to="/your-events" className="yourEvents eventButton">Your Events</Link>
             </StyledEventsButtons>
