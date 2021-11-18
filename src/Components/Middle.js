@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import image from '../Images/middleImg.jpeg';
 
 
 const Middle = () => {
@@ -61,7 +62,7 @@ const Middle = () => {
       </div>
       <div className='right'>
 
-        <img src='https://images.unsplash.com/photo-1556910146-6121b9613959?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzJ8fHBvdCUyMGx1Y2slMjBpbWFnZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60' alt='Pot Lucky' />
+        <img src={image} alt="man lifting lid on pot of food"/>
       </div>
       </StyledBody>
     </div>
