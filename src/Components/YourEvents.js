@@ -67,6 +67,22 @@ const YourEvents = () => {
                         </StyledEventInvite>
                     </StyledInviteContainer>
                 </div>
+
+                <div id="yourCreatedEvents">
+                    <h3>Events You Organized</h3>
+                    {/* vvv This is just filler data - we will need to actually pull this data for the logged in user somehow */}
+                    <StyledInviteContainer>
+                        <StyledEventInvite className="eventInvitation">
+                            <StyledEventInviteText>
+                                <p><b>Event Name</b></p>
+                                <p>Event Date</p>
+                                <p>Event Time</p>
+                                <p>Event Location</p>
+                                <Link to="/acceptedEventID" id="editEventButton">EDIT</Link>
+                            </StyledEventInviteText>
+                        </StyledEventInvite>
+                    </StyledInviteContainer>
+                </div>
                 
             </div>
         </div>
