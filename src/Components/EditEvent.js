@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { v4 as uuidv4 } from 'uuid';
+import image from '../Images/editEventImg.jpeg';
 
 const initialEventData = { // formerly "initialFormValues"
     name: "",
@@ -190,7 +191,7 @@ const AddEventForm = (props) => {
 export default AddEventForm;
 
 const StyledHeader = styled.div`
-	background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/clx120120fksundaysuppers-01-1603832526.jpg?crop=0.667xw:1.00xh;0.0256xw,0&resize=640:*');
+	background-image: url(${image});
 	background-size: cover;
 	background-position: center;
 `;

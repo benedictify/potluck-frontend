@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import image from '../Images/eventsDashImg.png';
 
 const StyledHeader = styled.div`
-   background-image: url('https://www.frameworkhomeownership.org/images/uploads/potluck-like-a-pro-large-fb-share-image.png');
+   background-image: url(${image});
 `
 const StyledEventsButtons = styled.div`
     display: flex;

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import image from '../Images/yourEventsImg.jpeg';
 
 const StyledHeader = styled.div 
-`   background-image: url('https://www.safeway.ca/wp-content/uploads/2019/10/Quick-Tips-for-Hosting-a-Potluck.jpg');
+`   background-image: url(${image});
 `
 const StyledEventInvite = styled.div 
 `   display: flex;

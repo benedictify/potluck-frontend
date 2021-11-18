@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components'
 import axios from 'axios';
+import image from '../Images/signUpImg.jpeg';
 
 const initialUser = {
     credentials: {
@@ -96,7 +97,7 @@ const SignUpForm = () => {
 export default SignUpForm;
 
 const StyledHeader = styled.div`
-    background-image: url('https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/Dishes_at_Potluck.jpg');
+    background-image: url(${image});
 `
 
 const ComponentContainer = styled.div`
