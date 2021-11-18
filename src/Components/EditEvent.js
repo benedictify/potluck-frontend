@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import image from '../Images/editEventImg.jpeg';
 
 const initialEventData = { // formerly "initialFormValues"
-    name: "",
+    eventName: "",
     date: "",
     foodList: [],
     time: "",
@@ -39,15 +39,17 @@ const AddEventForm = (props) => {
         addEvent(eventData);
     };
 
-    const inputChange = (name, value) => {
-        //validate(name, value);
-        setEventsList({ ...eventData, [name]: value });
-    };
+    // const inputChange = (name, value) => {
+    //     //validate(name, value);
+    //     setEventsList({ ...eventData, [name]: value });
+    // };
 
     const onChange = event => {
-        const { name, value, checked, type } = event.target;
-        const realValue = type === 'checkbox' ? checked : value;
-        inputChange(name, realValue);
+        // const realValue = (type) === 'checkbox' ? checked : value;
+        setEventData({
+            ...eventData,
+            [event.target.name]: event.target.value
+        });
     };
 
     // Food List
@@ -73,8 +75,9 @@ const AddEventForm = (props) => {
     }
 
     // Guest List
-    const initialGuestList = [];
-    const [guestList, setGuestList] = useState(initialGuestList);
+    // const initialGuestList = [];
+    // const [guestList, setGuestList] = useState(initialGuestList);
+    //
     const [guestName, setGuestName] = useState('');
 
     const handleChangeGuest = (event) => {
@@ -84,11 +87,16 @@ const AddEventForm = (props) => {
 
     const handleAddGuest = () => {
         //add item
-        const newGuestList = guestList.concat({ guestName, id: uuidv4() });
-
+        // const newGuestList = guestList.concat([{ guestName, id: uuidv4() }]);
         setEventData({
             ...eventData,
-            guestList: newGuestList
+            guestList: [
+                ...eventData.guestList,
+                { 
+                    guestName: guestName,
+                    id: uuidv4()
+                }
+            ]
         });
 
         setGuestName('');
@@ -97,53 +105,55 @@ const AddEventForm = (props) => {
     return (
         <div>
             <StyledHeader className="headerBanner">
-                <h2>Edit Event</h2>
+                <h2>Create Event</h2>
             </StyledHeader>
             <h3 id="createTagline">Edit your event by updating the fields below. Make sure that you confirm your changes by clicking the UPDATE EVENT button to save!</h3>
             <form onSubmit={onSubmit} id="eventForm">
                 <div id="formContent">
                     <StyledDTL className="DTL">
                         <h4>Event Details</h4>
-                        <label>Event Name&nbsp;
-                            <input
-                                type="text"
-                                id="eventName"
-                                name="eventName"
-                                value={eventData.name}
-                                required
-                                onChange={onChange}
-                                placeholder="Event Name"
-                            />
-                        </label>
-                        <label>Date&nbsp;
-                            <input
-                                type="date"
-                                id="date"
-                                name="date"
-                                value={eventData.date}
-                                required
-                                onChange={onChange}
-                            />
-                        </label>
-                        <label>Time&nbsp;
-                            <input
-                                type="time"
-                                id="time"
-                                name="time"
-                                value={eventData.time}
-                                onChange={onChange}
-                            />
-                        </label>
-                        <label>Location&nbsp;
-                            <input
-                                type="text"
-                                id="location"
-                                name="location"
-                                value={eventData.location}
-                                onChange={onChange}
-                                placeholder="Location"
-                            />
-                        </label>
+                        <StyledDetails>
+                            <label className="topP">Event Name&nbsp;
+                                <input
+                                    type="text"
+                                    id="eventName"
+                                    name="eventName"
+                                    value={eventData.eventName}
+                                    required
+                                    onChange={onChange}
+                                    placeholder="Event Name"
+                                />
+                            </label>
+                            <label>Date&nbsp;
+                                <input
+                                    type="date"
+                                    id="date"
+                                    name="date"
+                                    value={eventData.date}
+                                    required
+                                    onChange={onChange}
+                                />
+                            </label>
+                            <label>Time&nbsp;
+                                <input
+                                    type="time"
+                                    id="time"
+                                    name="time"
+                                    value={eventData.time}
+                                    onChange={onChange}
+                                />
+                            </label>
+                            <label>Location&nbsp;
+                                <input
+                                    type="text"
+                                    id="location"
+                                    name="location"
+                                    value={eventData.location}
+                                    onChange={onChange}
+                                    placeholder="Location"
+                                />
+                            </label>
+                        </StyledDetails>
                     </StyledDTL>
                     <div id="listContainer">
                         <StyledDiv id="itemList">
@@ -173,7 +183,7 @@ const AddEventForm = (props) => {
                                 </button>
                             </div>
                             <div>
-                                {guestList.map((item) => (
+                                {eventData.guestList.map((item) => (
                                     <li key={item.id}>{item.guestName}</li>
                                 ))}
                             </div>
@@ -181,7 +191,7 @@ const AddEventForm = (props) => {
                     </div>
                 </div>
 
-                <input type="submit" value="UPDATE EVENT" id="eventSubmit" />
+                <input type="submit" value="CREATE EVENT" id="eventSubmit" />
 
             </form>
         </div>
@@ -202,16 +212,17 @@ const StyledDTL = styled.div`
     margin: 3%;
 `;
 
-const StyledFood = styled.ul`
-    list-style-type: none;
-    border: solid black 1px;
-    width: 50%;
-    height: 20vh;
+const StyledDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
 `;
 
-const StyledDiv = styled.div`
-display: flex;
-justify-content: center;
-height: 100%;
-align-items: center;
+const StyledDetails = styled.div`
+    border: solid lightgrey 1px;
+    padding: 5%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 `;
