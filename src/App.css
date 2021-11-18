@@ -56,6 +56,14 @@ a:visited {
 }
 
 /* YourEvents */
+.yourEvents h3 {
+  margin-bottom: 0;
+}
+
+#openInvitations #tagline {
+  margin: 1% auto 0;
+}
+
 .eventButton, #acceptButton, #eventSubmit, #editEventButton {
   background-color: green;
 }
@@ -73,16 +81,16 @@ a:visited {
   border-radius: 5px;
 }
 
-.eventButton:hover, #acceptButton:hover, #eventSubmit:hover, #editEventButton:hover {
-  background-color: darkgreen;
+.acceptDeclineButtons {
+  margin-bottom: 5%;
 }
 
 #acceptButton, #declineButton {
   margin: 1%;
 }
 
-.acceptDeclineButtons {
-  margin-bottom: 5%;
+.eventButton:hover, #acceptButton:hover, #eventSubmit:hover, #editEventButton:hover {
+  background-color: darkgreen;
 }
 
 /* Create Event */
