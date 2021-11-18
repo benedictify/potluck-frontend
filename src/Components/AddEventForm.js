@@ -44,9 +44,11 @@ const AddEventForm = (props) => {
     };
 
     const onChange = event => {
-        const { name, value, checked, type } = event.target;
-        const realValue = type === 'checkbox' ? checked : value;
-        inputChange(name, realValue);
+        // const realValue = (type) === 'checkbox' ? checked : value;
+        setEventData({
+            ...eventData,
+            [event.target.name]: event.target.value
+        });
     };
 
     // Food List
