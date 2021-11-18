@@ -5,7 +5,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import { v4 as uuidv4 } from 'uuid';
 
 const initialEventData = { // formerly "initialFormValues"
-    name: "",
+    eventName: "",
     date: "",
     foodList: [],
     time: "",
@@ -38,10 +38,10 @@ const AddEventForm = (props) => {
         addEvent(eventData);
     };
 
-    const inputChange = (name, value) => {
-        //validate(name, value);
-        setEventsList({ ...eventData, [name]: value });
-    };
+    // const inputChange = (name, value) => {
+    //     //validate(name, value);
+    //     setEventsList({ ...eventData, [name]: value });
+    // };
 
     const onChange = event => {
         // const realValue = (type) === 'checkbox' ? checked : value;
@@ -110,7 +110,7 @@ const AddEventForm = (props) => {
                                 type="text"
                                 id="eventName"
                                 name="eventName"
-                                value={eventData.name}
+                                value={eventData.eventName}
                                 required
                                 onChange={onChange}
                                 placeholder="Event Name"
