@@ -28,7 +28,7 @@ function App() {
 	const [eventsList, setEventsList] = useState([]); // list of all events
 
 	// Const values for SignUpForm
-	const [formValues, setFormValues] = useState(initialFormValues);
+	const [formValues, setFormValues] = useState();
 	const [formErrors, setFormErrors] = useState(initialFormErrors);
 	const [disabled, setDisabled] = useState(true);
 	// const [users, setUsers] = useState([]);
@@ -77,14 +77,14 @@ function App() {
 		setFormValues({ ...formValues, [name]: value });
 	};
 
-	const formSubmit = () => {
-		const newUser = {
-			name: formValues.name.trim(),
-			email: formValues.email,
-			password: formValues.password
-		}
-		postNewUser(newUser);
-	};
+	// const formSubmit = () => {
+	// 	const newUser = {
+	// 		name: formValues.name.trim(),
+	// 		email: formValues.email,
+	// 		password: formValues.password
+	// 	}
+	// 	postNewUser(newUser);
+	// };
 
 	return (
 		<div className="App">

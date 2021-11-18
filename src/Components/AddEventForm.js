@@ -65,7 +65,7 @@ const AddEventForm = (props) => {
 
         setEventData({ // formerly "setFoodList"
             ...eventData,
-            foodList = newFoodList
+            foodList: newFoodList
         });
 
         setFoodName('');
@@ -154,11 +154,11 @@ const AddEventForm = (props) => {
                                     Add item
                                 </button>
                             </div>
-                            <StyledList>
+                            <div>
                                 {eventData.foodList.map((item) => (
                                     <li key={item.id}>{item.foodName}</li>
                                 ))}
-                            </StyledList>
+                            </div>
                         </StyledDiv>
 
                         <StyledDiv id="guestList">
@@ -171,11 +171,11 @@ const AddEventForm = (props) => {
                                     Add guest
                                 </button>
                             </div>
-                            <StyledList>
+                            <div>
                                 {guestList.map((item) => (
                                     <li key={item.id}>{item.guestName}</li>
                                 ))}
-                            </StyledList>
+                            </div>
                         </StyledDiv>
                     </div>
                 </div>
