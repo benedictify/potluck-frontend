@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 
 const Middle = () => {
@@ -17,9 +16,12 @@ const Middle = () => {
     justify-content: center;
     align-items: center;
   }
+  .left h1 {
+    font-size: 48px;
+  }
   .left h3 {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 28px;
   }
   .right {
     width: 50%;
@@ -29,15 +31,17 @@ const Middle = () => {
   }
   .button-homepage {
     margin-top: 50%;
+    font-size: 26px;
     width: 135%;
+    height: 60%;
     padding: 5%;
     border-radius: 6px;
     background-color: green;
+    color:white;
   }
   .button-homepage:hover {
     /* opacity: 80%; */
     border:2px black solid;
-    color: black;
   }
   `
 

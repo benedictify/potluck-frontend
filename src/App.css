@@ -2,41 +2,13 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#mainLogo {
+  margin: 0;
+  padding: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#mainLogo:hover, #footerNav a:hover {
+  opacity: 0.7;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
 .headernav {
   text-decoration: none;
@@ -50,7 +22,6 @@
   border-radius: 5px;
 }
 
-
 a:link {
   text-decoration: none;
   padding: 1%;
@@ -61,11 +32,9 @@ a:visited {
   text-decoration: none;
   color: white;
 }
-
-
-a:active {
-  text-decoration: underline;
-}
+/* * {
+  border:red 1px solid;
+} */
 
 #form-body label {
   margin: .5%
@@ -78,24 +47,91 @@ a:active {
   margin-bottom: 2%;
   height: 50vh;
   color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .headerBanner h2 {
   font-size: 3rem;
   text-shadow: 2px 2px 4px #190000;
 }
 
-.eventButton {
+/* YourEvents */
+.eventButton, #acceptButton, #eventSubmit {
   background-color: green;
+}
+
+#declineButton {
+  background-color: darkgrey;
+}
+#declineButton:hover {
+  background-color: grey;
+}
+
+.eventButton, #acceptButton, #declineButton {
   width: 15%;
   margin: 1% auto;
   border-radius: 5px;
 }
 
-.eventButton:hover {
+.eventButton:hover, #acceptButton:hover, #eventSubmit:hover {
   background-color: darkgreen;
 }
 
+#acceptButton, #declineButton {
+  margin: 1%;
+}
 
+.acceptDeclineButtons {
+  margin-bottom: 5%;
+}
+
+/* Create Event */
+#createTagline {
+  margin: 2% auto 3%;
+}
+
+#itemList, #guestList {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  text-align: left;
+}
+
+#eventSubmit {
+  margin: 2% auto 4%;
+  padding: 1% 2%;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#listContainer {
+  width: 60%;
+  margin: 0 5%;
+}
+
+#formContent {
+  display: flex;
+}
+
+.DTL h4 {
+  margin: 0 0 2%;
+}
+
+.DTL label {
+  margin: 1% 0;
+}
+
+#listContainer h4 {
+  margin: 0;
+}
+#listContainer p {
+  margin: 1% 0 2%;
+}
+
+#note {
+  font-size: .9rem;
+}
 
 
 
