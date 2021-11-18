@@ -61,6 +61,7 @@ const YourEvents = () => {
                                 <p>Event Date</p>
                                 <p>Event Time</p>
                                 <p>Event Location</p>
+                                <p>You're bringing: Lasagna</p>
                             </StyledEventInviteText>
                         </StyledEventInvite>
                     </StyledInviteContainer>
