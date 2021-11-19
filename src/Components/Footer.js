@@ -20,13 +20,16 @@ width: 100%;
 `
 
 const Footer = () => {
+    const token = localStorage.getItem("token");
+
     return (
         <StyledFooter>   
             <StyledNavbar id="footerNav">
                 <Link to="/" >HOME</Link>
                 <Link to="/login">LOGIN</Link>
                 <Link to="/signup">SIGN UP</Link>
-                <Link to="/events">EVENTS</Link>
+                {token && <Link to="/events">EVENTS</Link>}
+                {token && <Link to="/logout" className="headernav">LOGOUT</Link>}
             </StyledNavbar>
         </StyledFooter>
        
