@@ -8,6 +8,9 @@ import { Provider } from "react-redux";
 import { configureStore } from '@reduxjs/toolkit'
 
 configureStore({ reducer: {} });
+// add reducers to reducer object, e.g.
+// import counterReducer from '...'; 
+// configureStore({reducer: { counter: counterReducer }})
 
 ReactDOM.render(
 	<Provider store={store}>
