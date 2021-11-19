@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios';
 import image from '../Images/signUpImg.jpeg';
@@ -89,6 +90,11 @@ const SignUpForm = () => {
                         </form>
                     </div>
                 </ModalContainer>
+                <div className="loginRedirectContainer">
+                    <p>Already have an account? Click&nbsp;</p>
+                    <Link to="/login" className="loginRedirect">here</Link>
+                    <p>&nbsp;to login</p>
+                </div>
             </ComponentContainer>
         </div>
     );
@@ -105,12 +111,13 @@ const ComponentContainer = styled.div`
     justify-content: center;
     align-items: center;
     display:flex;
+    flex-direction: column;
 `
 
 const ModalContainer = styled.div`
     width: 500px;
     background: white;
-    padding: 1rem 2rem 4rem;
+    padding: 1rem 2rem;
     text-align: center;
 
     & h2 {

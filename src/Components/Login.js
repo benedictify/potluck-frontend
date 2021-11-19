@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import styled from 'styled-components'
 import axios from 'axios';
@@ -71,6 +72,11 @@ const Login = () => {
                 </form>
             </div>
         </ModalContainer>
+        <div className="loginRedirectContainer">
+            <p>Dont have an account? Click&nbsp;</p>
+            <Link to="/signup" className="loginRedirect">here</Link>
+            <p>&nbsp;to create one</p>
+        </div>
     </ComponentContainer>);
 }
 
@@ -82,6 +88,7 @@ const ComponentContainer = styled.div`
     justify-content: center;
     align-items: center;
     display:flex;
+    flex-direction: column;
 `
 
 const ModalContainer = styled.div`

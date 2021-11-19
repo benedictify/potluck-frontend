@@ -11,11 +11,16 @@
   margin: 0;
   padding: 0;
 }
-#mainLogo:hover, #footerNav a:hover {
+#mainLogo:hover, #footerNavs a:hover {
   opacity: 0.7;
   }
 
-.headernav {
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.headernav, .footernav {
   padding: 1%;
   color: white;
 }
@@ -26,10 +31,18 @@
   border-radius: 5px;
 }
 
-a:link, a:visited {
-  text-decoration: none;
-  padding: 1%;
-  color: white;
+.loginRedirectContainer {
+  display: flex;
+  align-items: center;
+  font-size: .9rem;
+  padding-bottom: 4rem;
+}
+
+.loginRedirect {
+  color: blue;
+}
+.loginRedirect:hover {
+  text-decoration: underline;
 }
 
 #form-body label {
@@ -89,7 +102,7 @@ a:link, a:visited {
   flex-direction: column;
 }
 
-.yourEventButtons a {
+.yourEventButtons a, .eventButton {
   padding: 5px;
 }
 
@@ -149,7 +162,6 @@ a:link, a:visited {
 #note {
   font-size: .9rem;
 }
-
 
 
 

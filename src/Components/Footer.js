@@ -24,12 +24,12 @@ const Footer = () => {
 
     return (
         <StyledFooter>   
-            <StyledNavbar id="footerNav">
-                <Link to="/" >HOME</Link>
-                <Link to="/login">LOGIN</Link>
-                <Link to="/signup">SIGN UP</Link>
-                {token && <Link to="/events">EVENTS</Link>}
-                {token && <Link to="/logout" className="headernav">LOGOUT</Link>}
+            <StyledNavbar id="footerNavs">
+                <Link to="/" className="footernav">HOME</Link>
+                <Link to="/login" className="footernav">LOGIN</Link>
+                <Link to="/signup" className="footernav">SIGN UP</Link>
+                {token && <Link to="/events" className="footernav">EVENTS</Link>}
+                {token && <Link to="/logout" className="footernav">LOGOUT</Link>}
             </StyledNavbar>
         </StyledFooter>
        
