@@ -105,7 +105,7 @@ const AddEventForm = (props) => {
     return (
         <div>
             <StyledHeader className="headerBanner">
-                <h2>Create Event</h2>
+                <h2>Edit Event</h2>
             </StyledHeader>
             <h3 id="createTagline">Edit your event by updating the fields below. Make sure that you confirm your changes by clicking the UPDATE EVENT button to save!</h3>
             <form onSubmit={onSubmit} id="eventForm">
@@ -191,7 +191,7 @@ const AddEventForm = (props) => {
                     </div>
                 </div>
 
-                <input type="submit" value="CREATE EVENT" id="eventSubmit" />
+                <input type="submit" value="UPDATE EVENT" id="eventSubmit" />
 
             </form>
         </div>

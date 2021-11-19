@@ -60,14 +60,14 @@ a:link, a:visited {
   margin: 1% auto 0;
 }
 
-.eventButton, #acceptButton, #eventSubmit, #editEventButton {
+.eventButton, #acceptButton, #eventSubmit, #editEventButton, #confirm {
   background-color: green;
 }
 
-#declineButton {
+#declineButton, #cancel {
   background-color: darkgrey;
 }
-#declineButton:hover {
+#declineButton:hover, #cancel:hover {
   background-color: grey;
 }
 
@@ -80,7 +80,7 @@ a:link, a:visited {
   margin: 1%;
 }
 
-.eventButton:hover, #acceptButton:hover, #eventSubmit:hover, #editEventButton:hover {
+.eventButton:hover, #acceptButton:hover, #eventSubmit:hover, #editEventButton:hover, #confirm:hover {
   background-color: darkgreen;
 }
 
