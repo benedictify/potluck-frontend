@@ -31,6 +31,7 @@ const Login = () => {
           .then(resp=> {
             localStorage.setItem('token', resp.data.token);
             history.push('/events');
+            window.location.reload();
           })
           .catch(err=> { 
             console.log(err);

@@ -24,6 +24,7 @@ const StyledNavbar = styled.div
 `
 
 const Header = () => {
+    const token = localStorage.getItem("token");
     return (
         <StyledHeader>
             <a href="/" id="mainLogo">
@@ -33,8 +34,8 @@ const Header = () => {
                 <Link to="/" className="headernav">HOME</Link>
                 <Link to="/login" className="headernav">LOGIN</Link>
                 <Link to="/signup" className="headernav">SIGN UP</Link>
-                <Link to="/events" className="headernav">EVENTS</Link>
-                <Link to="/logout" className="headernav">LOGOUT</Link>
+                {token && <Link to="/events" className="headernav">EVENTS</Link>}
+                {token && <Link to="/logout" className="headernav">LOGOUT</Link>}
             </StyledNavbar>
         </StyledHeader>
     )
