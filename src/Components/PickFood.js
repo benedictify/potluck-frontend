@@ -1,20 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import image from '../Images/pickFoodImg.jpeg';
 
 const PickFood = () => {
 
     const StyledHeader = styled.div`
-       background-image: url('https://www.frameworkhomeownership.org/images/uploads/potluck-like-a-pro-large-fb-share-image.png');
-        background-repeat:no-repeat;
-        background-size:cover;
-        display:flex;
-        width: 100%;
+       background-image: url(${image});
     `
 
     const StyledPick = styled.div`
         display:flex;
         flex-direction: column;
         align-items: center;
+    p {
+        margin: 2% 5% 5%;
+    }
     .pick {
         width: 30% ;
         height: 60vh;
@@ -22,11 +23,14 @@ const PickFood = () => {
         border: 2px solid black;
     }
     .buttonstyle {
-        width:10%;
-        margin:1%;
+        display: flex;
+        justify-content: center;
+        margin: 2% auto 5%;
     }
-    .confirm {
-        margin-right: 3%;
+    .button {
+        padding: 5%;
+        border-radius: 5px;
+        margin: 5px;
     }
     `
 
@@ -38,12 +42,13 @@ const PickFood = () => {
                     <h2>Name of event filler</h2>
             </StyledHeader>
             <StyledPick>
+                <p>Use the checkboxes below to select items that you will bring to your event. Click the "CONFIRM" button below to finalize your choices, or click "CANCEL" to rescind your invite acceptance and return to Your Events page.</p>
                 <div className='pick'>
                     
                 </div>
                 <div className='buttonstyle'>
-                    <button className='confirm'>Confirm</button>
-                    <button className='cancel'>Cancel</button>
+                    <Link to="/your-events" id="confirm" className="button">CONFIRM</Link>
+                    <Link to="/your-events" id="cancel" className="button">CANCEL</Link>
                 </div>
             </StyledPick>
         </div>

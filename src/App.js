@@ -56,29 +56,30 @@ function App() {
 				<Header />
 
 				<Switch>
-		  <Route path='/edit-event' component={EditEvent}></Route>
+					<Route path='/edit-event' component={EditEvent}></Route>
 
-          <Route path='/event-accepted' component={PickFood}></Route>
+					<Route path='/acceptedEventID' component={PickFood}></Route>
 
-          <Route path='/your-events' component={YourEvents}></Route>
+					<Route path='/your-events' component={YourEvents}></Route>
 
-          <PrivateRoute path='/your-events' component={YourEvents}></PrivateRoute>
+					<PrivateRoute path='/your-events' component={YourEvents}></PrivateRoute>
 
-          <PrivateRoute path='/create-event' >
+					<PrivateRoute path='/create-event' >
 						<AddEventForm eventsList={eventsList} setEventsList={setEventsList} />
 					</PrivateRoute>
           
-          <PrivateRoute path='/events' component={EventsDashboard}></PrivateRoute>
+					<PrivateRoute path='/events' component={EventsDashboard}></PrivateRoute>
 
-          <PrivateRoute path='/logout' component={Logout}></PrivateRoute>
+					<PrivateRoute path='/logout' component={Logout}></PrivateRoute>
 
-					<Route path='/signup'>
-            <SignUpForm />
-          </Route>
-          
-          <Route path='/login'>
-            <LoginForm />
-          </Route>
+								<Route path='/signup'>
+						<SignUpForm />
+					</Route>
+					
+					<Route path='/login'>
+						<LoginForm />
+					</Route>
+
 					<Route exact path='/'>
 						<Middle />
 					</Route>
