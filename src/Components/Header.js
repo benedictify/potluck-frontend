@@ -35,6 +35,7 @@ const Header = () => {
                 <Link to="/login" className="headernav">LOGIN</Link>
                 <Link to="/signup" className="headernav">SIGN UP</Link>
                 {token && <Link to="/events" className="headernav">EVENTS</Link>}
+                {token && <Link to="/locations" className="headernav">LOCATIONS</Link>}
                 {token && <Link to="/logout" className="headernav">LOGOUT</Link>}
             </StyledNavbar>
         </StyledHeader>

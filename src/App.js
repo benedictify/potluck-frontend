@@ -15,6 +15,7 @@ import YourEvents from './Components/YourEvents';
 import PickFood from './Components/PickFood';
 import PrivateRoute from './Components/PrivateRoute';
 import Logout from './Components/Logout';
+import Locations from './Components/Locations/index';
 
 import './App.css';
 
@@ -69,6 +70,10 @@ function App() {
 					</PrivateRoute>
           
 					<PrivateRoute path='/events' component={EventsDashboard}></PrivateRoute>
+					
+					<Route path="/locations">
+						<Locations />
+					</Route>
 
 					<PrivateRoute path='/logout' component={Logout}></PrivateRoute>
 

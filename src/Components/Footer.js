@@ -29,6 +29,7 @@ const Footer = () => {
                 <Link to="/login" className="footernav">LOGIN</Link>
                 <Link to="/signup" className="footernav">SIGN UP</Link>
                 {token && <Link to="/events" className="footernav">EVENTS</Link>}
+								{token && <Link to="/locations" className="headernav">LOCATIONS</Link>}
                 {token && <Link to="/logout" className="footernav">LOGOUT</Link>}
             </StyledNavbar>
         </StyledFooter>
