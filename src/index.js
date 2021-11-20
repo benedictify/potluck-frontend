@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { configureStore } from '@reduxjs/toolkit'
 import './index.css';
-import App from './src/App';
+import App from './App';
 
 export const history = createBrowserHistory({
 	basename: process.env.PUBLIC_URL
