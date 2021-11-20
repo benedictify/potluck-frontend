@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
-import { useHistory } from 'react-router-dom';
+import { useNavigate as useHistory } from 'react-router-dom';
 
 
-const Logout = ()=> {
-    const {push} = useHistory();
+const Logout = () => {
+	const { push } = useHistory();
 
-    useEffect(()=> {
-        localStorage.removeItem("token");
-        push('/login');
-        window.location.reload();
-    }, []);
-    
-    return(<div></div>);
+	useEffect(() => {
+		localStorage.removeItem("token");
+		push('/login');
+		window.location.reload();
+	}, []);
+
+	return (<div></div>);
 }
 
 export default Logout;

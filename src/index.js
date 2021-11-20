@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+// import { createBrowserHistory } from 'history';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { configureStore } from '@reduxjs/toolkit'
 import './index.css';
 import App from './App';
 
-export const history = createBrowserHistory({
-	basename: process.env.PUBLIC_URL
-});
+// export const history = createBrowserHistory({
+// 	basename: process.env.PUBLIC_URL
+// });
 
 const store = configureStore({ reducer: {} });
 

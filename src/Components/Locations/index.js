@@ -1,6 +1,6 @@
-// "View All" page
-
 import React from "react";
+
+// "View All" page
 
 const Locations = () => {
 	return (

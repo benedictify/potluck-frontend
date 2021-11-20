@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes as Switch } from 'react-router-dom';
 import formSchema from './validation/formSchema';
 import * as yup from 'yup';
 
@@ -58,33 +58,26 @@ function App() {
 
 				<Switch>
 					<Route path='/edit-event' component={EditEvent}></Route>
-
 					<Route path='/acceptedEventID' component={PickFood}></Route>
-
 					<Route path='/your-events' component={YourEvents}></Route>
 
 					<PrivateRoute path='/your-events' component={YourEvents}></PrivateRoute>
-
 					<PrivateRoute path='/create-event' >
 						<AddEventForm eventsList={eventsList} setEventsList={setEventsList} />
 					</PrivateRoute>
-          
 					<PrivateRoute path='/events' component={EventsDashboard}></PrivateRoute>
-					
+					<PrivateRoute path='/logout' component={Logout}></PrivateRoute>
+
 					<Route path="/locations">
 						<Locations />
 					</Route>
 
-					<PrivateRoute path='/logout' component={Logout}></PrivateRoute>
-
-								<Route path='/signup'>
+					<Route path='/signup'>
 						<SignUpForm />
 					</Route>
-					
 					<Route path='/login'>
 						<LoginForm />
 					</Route>
-
 					<Route exact path='/'>
 						<Middle />
 					</Route>
