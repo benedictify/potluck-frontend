@@ -1,5 +1,6 @@
 {
-	"name": "potluck",
+	"homepage": "https://benedictify.github.io/potluck-planner/",
+	"name": "potluck-planner",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
