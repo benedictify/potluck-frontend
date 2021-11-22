@@ -1,41 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import image from '../Images/yourEventsImg.jpeg';
-
-const StyledHeader = styled.div`
-	background-image: url(${image});
-`
-const StyledInviteContainer = styled.div`
-	display: flex;
-	justify-content: center;
-	margin: 0;
-`
-const StyledEventInvite = styled.div`
-	display: flex;
-	border: solid lightgrey 1px;
-	padding: 2%;
-	width: 35%;
-	border-radius: 5px;
-	margin: 2% auto 4%;
-	justify-content: space-between;
-	align-items: flex-end;
-`
-const StyledEventInviteText = styled.div`
-	text-align: left;
-
-	& p {
-		margin: 5% 0;
-	} 
-
-	& .topP {
-		margin-top: 0;
-	}
-
-	& .bottomP {
-		margin-bottom: 0;
-	}
-`
+import image from '../../Images/yourEventsImg.jpeg';
 
 const YourEvents = () => {
 	return (
@@ -106,3 +72,34 @@ const YourEvents = () => {
 }
 
 export default YourEvents;
+
+const StyledHeader = styled.div`
+	background-image: url(${image});
+`
+const StyledInviteContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	margin: 0;
+`
+const StyledEventInvite = styled.div`
+	display: flex;
+	border: solid lightgrey 1px;
+	padding: 2%;
+	width: 35%;
+	border-radius: 5px;
+	margin: 2% auto 4%;
+	justify-content: space-between;
+	align-items: flex-end;
+`
+const StyledEventInviteText = styled.div`
+	text-align: left;
+	& p {
+		margin: 5% 0;
+	} 
+	& .topP {
+		margin-top: 0;
+	}
+	& .bottomP {
+		margin-bottom: 0;
+	}
+`

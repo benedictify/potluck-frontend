@@ -1,27 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../Images/logo.png';
-
-const StyledHeader = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: .5% 1%;
-	background-color: green;
-`
-
-const StyledLogo = styled.img`
-	height: 30px;
-	margin: 0;
-	padding: 0;
-`
-
-const StyledNavbar = styled.div`
-	display: flex;
-	justify-content: flex-end;
-	width: 100%;
-`
+import logo from '../../Images/logo.png';
 
 const Header = () => {
 	const token = localStorage.getItem("token");
@@ -43,3 +23,23 @@ const Header = () => {
 }
 
 export default Header;
+
+const StyledHeader = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: .5% 1%;
+	background-color: green;
+`
+
+const StyledLogo = styled.img`
+	height: 30px;
+	margin: 0;
+	padding: 0;
+`
+
+const StyledNavbar = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+`

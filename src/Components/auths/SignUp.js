@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate as useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios';
-import image from '../Images/signUpImg.jpeg';
+import image from '../../Images/signUpImg.jpeg';
 
 const initialUser = {
 	credentials: {
@@ -17,7 +17,7 @@ const initialUser = {
 // creates new User, posts to server
 const SignUpForm = () => {
 	const [user, setUser] = useState(initialUser);
-	const { push } = useHistory();
+	const { push } = useHistory;
 
 	const handleChange = e => {
 		setUser({

@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes as Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import formSchema from './validation/formSchema';
 import * as yup from 'yup';
 
-import LoginForm from './Components/Login';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import Middle from './Components/Middle';
-import SignUpForm from './Components/SignUp';
-import EventsDashboard from './Components/EventsDashboard';
-import AddEventForm from './Components/AddEventForm';
-import EditEvent from './Components/EditEvent';
-import YourEvents from './Components/YourEvents';
-import PickFood from './Components/PickFood';
-import PrivateRoute from './Components/PrivateRoute';
-import Logout from './Components/Logout';
+import SignUpForm from './Components/auths/SignUp';
+import LoginForm from './Components/auths/Login';
+import Logout from './Components/auths/Logout';
+import Header from './Components/Home/Header';
+import Body from './Components/Home/Body';
+import Footer from './Components/Home/Footer';
+import EventsDashboard from './Components/Events/EventsDashboard';
+import YourEvents from './Components/Events/YourEvents';
+import AddEventForm from './Components/Events/AddEventForm';
+import EditEvent from './Components/Events/EditEvent';
+import PickFood from './Components/Foods/PickFood';
 import Locations from './Components/Locations/index';
+import PrivateRoute from './Components/Route/PrivateRoute';
 
 import './App.css';
 
@@ -57,9 +57,23 @@ function App() {
 				<Header />
 
 				<Switch>
+					<Route path='/'>
+						<Body />
+					</Route>
+					<Route path='/signup'>
+						<SignUpForm />
+					</Route>
+					<Route path='/login'>
+						<LoginForm />
+					</Route>
+
 					<Route path='/edit-event' component={EditEvent}></Route>
 					<Route path='/acceptedEventID' component={PickFood}></Route>
 					<Route path='/your-events' component={YourEvents}></Route>
+
+					<Route path="/locations">
+						<Locations />
+					</Route>
 
 					<PrivateRoute path='/your-events' component={YourEvents}></PrivateRoute>
 					<PrivateRoute path='/create-event' >
@@ -67,20 +81,6 @@ function App() {
 					</PrivateRoute>
 					<PrivateRoute path='/events' component={EventsDashboard}></PrivateRoute>
 					<PrivateRoute path='/logout' component={Logout}></PrivateRoute>
-
-					<Route path="/locations">
-						<Locations />
-					</Route>
-
-					<Route path='/signup'>
-						<SignUpForm />
-					</Route>
-					<Route path='/login'>
-						<LoginForm />
-					</Route>
-					<Route exact path='/'>
-						<Middle />
-					</Route>
 				</Switch>
 			</div>
 			<Footer />

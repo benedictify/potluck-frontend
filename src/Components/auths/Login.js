@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useNavigate as useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios';
 
@@ -11,7 +11,6 @@ const initialState = {
 	},
 	error: ''
 };
-
 
 const Login = () => {
 	const [state, setState] = useState(initialState);

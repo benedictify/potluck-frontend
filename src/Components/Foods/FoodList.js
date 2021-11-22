@@ -2,20 +2,6 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 
-const StyledFood = styled.ul`
-	list-style-type: none;
-	border: solid black 1px;
-	width: 50%;
-	height: 20vh;
-`;
-
-const StyledDiv = styled.div`
-	display: flex;
-	justify-content: center;
-	height: 100%;
-	align-items: center;
-`;
-
 const initialFoodList = [];
 
 const Food = () => {
@@ -23,7 +9,6 @@ const Food = () => {
 	const [name, setName] = useState('');
 
 	const handleChange = (event) => {
-		//track input field's state
 		setName(event.target.value);
 	}
 
@@ -51,3 +36,17 @@ const Food = () => {
 };
 
 export default Food;
+
+const StyledFood = styled.ul`
+	list-style-type: none;
+	border: solid black 1px;
+	width: 50%;
+	height: 20vh;
+`;
+
+const StyledDiv = styled.div`
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	align-items: center;
+`;

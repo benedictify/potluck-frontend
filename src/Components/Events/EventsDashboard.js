@@ -1,21 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import image from '../Images/eventsDashImg.png';
-
-const StyledHeader = styled.div`
-	background-image: url(${image});
-`
-
-const StyledEventsButtons = styled.div`
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 5%;
-`
-
-const StyledP = styled.p`
-	padding: 0 5%;
-`
+import image from '../../Images/eventsDashImg.png';
 
 const EventsDashboard = (props) => {
 	return (
@@ -33,3 +19,17 @@ const EventsDashboard = (props) => {
 };
 
 export default EventsDashboard;
+
+const StyledHeader = styled.div`
+	background-image: url(${image});
+`
+
+const StyledEventsButtons = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 5%;
+`
+
+const StyledP = styled.p`
+	padding: 0 5%;
+`

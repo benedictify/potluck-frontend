@@ -1,72 +1,57 @@
 import { React, useState } from 'react';
-import { Navigate as Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
-import axiosWithAuth from '../utils/axiosWithAuth';
+import axiosWithAuth from '../../utils/axiosWithAuth';
 import { v4 as uuidv4 } from 'uuid';
-import image from '../Images/editEventImg.jpeg';
+import image from '../../Images/addEventFormImg.jpeg';
 
-const initialEventData = { // formerly "initialFormValues"
+const initialEventData = {
 	eventName: "",
 	date: "",
 	foodList: [],
 	time: "",
 	location: "",
-	guestList: [] // formerly "email"
+	guestList: []
 };
 
 const AddEventForm = (props) => {
-	const { eventsList, setEventsList } = props; // formerly "events"
-	const [eventData, setEventData] = useState(initialEventData); // formerly "formValues"
-	// const [list, setList] = useState(); // now storing foods list inside eventData
-	// const [name, setName] = useState(''); // this is now in eventData
+	const { eventsList, setEventsList } = props;
+	const [eventData, setEventData] = useState(initialEventData);
 
-	const addEvent = () => { // formerly "postNewEvent"
-		axiosWithAuth() // this function contains a "baseURL" of "https://potluckplanner2.herokuapp.com/api", so whatever's below will append onto "baseURL"
+	const addEvent = () => {
+		axiosWithAuth()
 			.post('/events', eventData)
-			.then(res => { // retrieve data of added event, 
+			.then(res => {
 				const newEvent = res.data;
-				// add event to local events list in App state
 				setEventsList([...eventsList, newEvent]);
-				// instead of resetting the form, we'll redirect to the display page for the event we just added
 				return <Redirect to={`/events/${newEvent.id}`} />
 			})
 			.catch(err => console.error(err))
 	};
 
-	const onSubmit = event => { // now does job of onSubmit and formSubmit
+	const onSubmit = event => {
 		event.preventDefault();
 
 		addEvent(eventData);
 	};
 
-	// const inputChange = (name, value) => {
-	//     //validate(name, value);
-	//     setEventsList({ ...eventData, [name]: value });
-	// };
-
 	const onChange = event => {
-		// const realValue = (type) === 'checkbox' ? checked : value;
 		setEventData({
 			...eventData,
 			[event.target.name]: event.target.value
 		});
 	};
 
-	// Food List
-	// const initialFoodList = []; // foodList is now in eventData
-	// const [foodList, setFoodList] = useState(initialFoodList);
 	const [foodName, setFoodName] = useState('');
 
 	const handleChangeFood = (event) => {
-		//track input field's state
 		setFoodName(event.target.value);
 	}
 
 	const handleAddFood = () => {
-		//add item
 		const newFoodList = eventData.foodList.concat({ foodName, id: uuidv4() });
 
-		setEventData({ // formerly "setFoodList"
+		setEventData({
 			...eventData,
 			foodList: newFoodList
 		});
@@ -74,20 +59,14 @@ const AddEventForm = (props) => {
 		setFoodName('');
 	}
 
-	// Guest List
-	// const initialGuestList = [];
-	// const [guestList, setGuestList] = useState(initialGuestList);
-	//
+
 	const [guestName, setGuestName] = useState('');
 
 	const handleChangeGuest = (event) => {
-		//track input field's state
 		setGuestName(event.target.value);
 	}
 
 	const handleAddGuest = () => {
-		//add item
-		// const newGuestList = guestList.concat([{ guestName, id: uuidv4() }]);
 		setEventData({
 			...eventData,
 			guestList: [
@@ -105,9 +84,9 @@ const AddEventForm = (props) => {
 	return (
 		<div>
 			<StyledHeader className="headerBanner">
-				<h2>Edit Event</h2>
+				<h2>Create Event</h2>
 			</StyledHeader>
-			<h3 id="createTagline">Edit your event by updating the fields below. Make sure that you confirm your changes by clicking the UPDATE EVENT button to save!</h3>
+			<h3 id="createTagline">Create an event by filling in each of the fields below!</h3>
 			<form onSubmit={onSubmit} id="eventForm">
 				<div id="formContent">
 					<StyledDTL className="DTL">
@@ -191,7 +170,7 @@ const AddEventForm = (props) => {
 					</div>
 				</div>
 
-				<input type="submit" value="UPDATE EVENT" id="eventSubmit" />
+				<input type="submit" value="CREATE EVENT" id="eventSubmit" />
 
 			</form>
 		</div>
