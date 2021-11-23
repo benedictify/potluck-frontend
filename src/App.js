@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import formSchema from './validation/formSchema';
 import * as yup from 'yup';
 
@@ -57,9 +57,6 @@ function App() {
 				<Header />
 
 				<Switch>
-					<Route path='/'>
-						<Body />
-					</Route>
 					<Route path='/signup'>
 						<SignUpForm />
 					</Route>
@@ -76,11 +73,17 @@ function App() {
 					</Route>
 
 					<PrivateRoute path='/your-events' component={YourEvents}></PrivateRoute>
-					<PrivateRoute path='/create-event' >
-						<AddEventForm eventsList={eventsList} setEventsList={setEventsList} />
+					<PrivateRoute path='/create-event' component={AddEventForm} eventsList={eventsList} setEventsList={setEventsList}>
+						{/* <AddEventForm eventsList={eventsList} setEventsList={setEventsList} /> */}
 					</PrivateRoute>
 					<PrivateRoute path='/events' component={EventsDashboard}></PrivateRoute>
 					<PrivateRoute path='/logout' component={Logout}></PrivateRoute>
+
+					<Route exact path='/'>
+						<Body />
+					</Route>
+
+					<Redirect to="/" />
 				</Switch>
 			</div>
 			<Footer />
