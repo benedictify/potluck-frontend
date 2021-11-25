@@ -24,7 +24,7 @@ const YourEvents = () => {
 							</StyledEventInviteText>
 							<div className="yourEventButtons">
 								<Link to="/acceptedEventID" id="acceptButton" className="topP">ACCEPT</Link>
-								<Link to="/your-events" id="declineButton" className="bottomP">DECLINE</Link>
+								<Link to="/events/" id="declineButton" className="bottomP">DECLINE</Link>
 							</div>
 						</StyledEventInvite>
 					</StyledInviteContainer>
@@ -60,7 +60,7 @@ const YourEvents = () => {
 								<p class="bottomP">Location: </p>
 							</StyledEventInviteText>
 							<div className="yourEventButtons">
-								<Link to="/edit-event" id="editEventButton" className="bottomP">EDIT</Link>
+								<Link to="/events/edit" id="editEventButton" className="bottomP">EDIT</Link>
 							</div>
 						</StyledEventInvite>
 					</StyledInviteContainer>

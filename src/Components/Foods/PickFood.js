@@ -13,8 +13,8 @@ const PickFood = () => {
 				<p>Use the checkboxes below to select items that you will bring to your event. Click the "CONFIRM" button below to finalize your choices, or click "CANCEL" to rescind your invite acceptance and return to Your Events page.</p>
 				<div className='pick'></div>
 				<div className='buttonstyle'>
-					<Link to="/your-events" id="confirm" className="button">CONFIRM</Link>
-					<Link to="/your-events" id="cancel" className="button">CANCEL</Link>
+					<Link to="/events/" id="confirm" className="button">CONFIRM</Link>
+					<Link to="/events/" id="cancel" className="button">CANCEL</Link>
 				</div>
 			</StyledPick>
 		</div>
