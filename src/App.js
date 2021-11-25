@@ -21,7 +21,8 @@ import EditEvent from './Components/Events/EditEvent';
 // Foods
 // import PickFood from './Components/Foods/PickFood';
 // Locations
-import Locations from './Components/Locations/index';
+import ShowAllLocations from './Components/Locations/ShowAllLocations';
+import ShowLocation from './Components/Locations/ShowLocation';
 import AddLocationForm from './Components/Locations/AddLocationForm';
 // styles
 import './App.css';
@@ -33,30 +34,12 @@ const initialValues = {
 }
 
 function App() {
-	// Events:
+	// State:
 	const [eventsList, setEventsList] = useState([]);
+	
 
-	// validation:
-	// const validate = (name, value) => {
-	// 	yup.reach(formSchema, name)
-	// 		.validate(value)
-	// 		.then(() => setFormErrors({ ...formErrors, [name]: '' }))
-	// 		.catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0] }))
-	// };
 
-	// Authentication: 
-	// state for SignUpForm
-	// const [formErrors, setFormErrors] = useState(initialValues);
-	// const [disabled, setDisabled] = useState(true);
-	// Values and functions for SignUpForm
-	// useEffect(() => {
-	// 	formSchema.isValid(signupFormValues)
-	// 		.then(valid => setDisabled(!valid));
-	// }, [signupFormValues]);
-	// const inputChange = (name, value) => {
-	// 	validate(name, value);
-	// 	setSignupFormValues({ ...signupFormValues, [name]: value });
-	// };
+
 
 	return (
 		<div className="App">
@@ -77,7 +60,8 @@ function App() {
 					{/* <Route path='/acceptedEventID' component={PickFood} /> */}
 
 					{/* Locations */}
-					<Route path="/locations" component={Locations} />
+					<Route path="/locations" component={ShowAllLocations} />
+					<Route path="/locations/:id" component={ShowLocation} />
 					<Route path="/locations/new" component={AddLocationForm} />
 
 					{/* Home */}
