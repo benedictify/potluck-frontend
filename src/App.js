@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // Routes
 import { Route, Switch, Redirect } from 'react-router-dom';
-import PrivateRoute from './Components/Route/PrivateRoute';
+import PrivateRoute from './Components/Routes/PrivateRoute';
 // validations
 import formSchema from './validation/formSchema';
 import * as yup from 'yup';
@@ -27,19 +27,8 @@ import AddLocationForm from './Components/Locations/AddLocationForm';
 // styles
 import './App.css';
 
-const initialValues = {
-	username: '',
-	email: '',
-	password: ''
-}
-
 function App() {
-	// State:
-	const [eventsList, setEventsList] = useState([]);
-	
-
-
-
+	// Local State:
 
 	return (
 		<div className="App">
@@ -69,8 +58,10 @@ function App() {
 
 					<Redirect to="/" />
 				</Switch>
+
 			</div>
 			<Footer />
+
 		</div>
 	);
 }

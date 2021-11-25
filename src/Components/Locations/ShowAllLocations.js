@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from '../../utils/axios'
 
 const ShowAllLocations = () => {
+	useEffect(() => {
+		axios.locationsList
+	})
+
 	return (
 		<div>
-			ShowAllLocations Component  
+			<h2>ShowAllLocations Component</h2>
 		</div>
 	)
 }
