@@ -1,25 +1,16 @@
-import { SAVE_LOCATIONS_LIST } from "../actions/locationActions";
+import { SAVE_LOCATIONS_LIST } from "../actions/locationsActions";
 
-const initialState = (state) => {
-	return ({
-		...state,
-		locationsList: [],
-	})
+const initialState = {
+	list: []
 }
 
-const locationsReducer = (state, action) => {
-	// if state.locationsList is there,
-	// then don't do anything. 
-	// if state.locationsList is not there, 
-	// set state ...state with locationsList: blank array 
-	
-	if (!state.locationsList) {
-		state = {...state, locationsList: []};
-		console.log("locationsReducer: state ", state);
-	}
-
+const locationsReducer = (state = initialState, action) => {
 	switch (action.type) {
-		// case 
+		case SAVE_LOCATIONS_LIST:
+			return ({
+				...state,
+				list: action.payload,
+			})
 		default:
 			return state;
 	}

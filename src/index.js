@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // Redux
 import { Provider } from "react-redux";
 import { createStore } from 'redux'
-import reducer from './reducers/'
+import combined from './reducers/index'
 // utils
 import reportWebVitals from './reportWebVitals';
 // styles
@@ -13,7 +13,7 @@ import './index.css';
 // components
 import App from './App';
 
-const store = createStore(reducer);
+const store = createStore(combined);
 
 ReactDOM.render(
 	<Router>

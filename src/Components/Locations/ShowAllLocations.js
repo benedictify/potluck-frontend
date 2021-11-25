@@ -1,16 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { saveLocationsList } from "../../actions/locationsActions";
 import axios from '../../utils/axios'
 
-const ShowAllLocations = () => {
+const ShowAllLocations = (props) => {
 	useEffect(() => {
-		axios.locationsList
-	})
+		saveLocationsList(axios.locationsList) // dispatch action to save "axios".locationsList to store
+	}, []);
 
 	return (
 		<div>
 			<h2>ShowAllLocations Component</h2>
+			<h3>{props.list}</h3>
 		</div>
 	)
 }
 
-export default ShowAllLocations;
+const mapStateToProps = (state) => {
+	return ({
+		list: state.locations.list
+	});
+}
+
+export default connect(mapStateToProps)(ShowAllLocations);
