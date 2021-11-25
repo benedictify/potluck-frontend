@@ -20,9 +20,10 @@ import EditEvent from './Components/Events/EditEvent';
 import PickFood from './Components/Foods/PickFood';
 // Locations
 import Locations from './Components/Locations/index';
+import AddLocationForm from './Components/Locations/AddLocationForm';
 // Route
 import PrivateRoute from './Components/Route/PrivateRoute';
-
+// styles
 import './App.css';
 
 const initialValues = {
@@ -33,12 +34,8 @@ const initialValues = {
 
 function App() {
 	// Events
-	const [eventsList, setEventsList] = useState([]); 
+	const [eventsList, setEventsList] = useState([]);
 
-	// Auth: values for SignUpForm
-	const [signupFormValues, setSignupFormValues] = useState(initialValues);
-	const [formErrors, setFormErrors] = useState(initialValues);
-	const [disabled, setDisabled] = useState(true);
 
 	const validate = (name, value) => {
 		yup.reach(formSchema, name)
@@ -47,12 +44,15 @@ function App() {
 			.catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0] }))
 	};
 
+	// Auth: 
+	// state for SignUpForm
+	const [formErrors, setFormErrors] = useState(initialValues);
+	const [disabled, setDisabled] = useState(true);
 	// Values and functions for SignUpForm
 	useEffect(() => {
 		formSchema.isValid(signupFormValues)
 			.then(valid => setDisabled(!valid));
 	}, [signupFormValues]);
-
 	const inputChange = (name, value) => {
 		validate(name, value);
 		setSignupFormValues({ ...signupFormValues, [name]: value });
@@ -84,9 +84,8 @@ function App() {
 					<PrivateRoute path='/events' component={EventsDashboard}></PrivateRoute>
 
 					{/* Locations */}
-					<Route path="/locations">
-						<Locations />
-					</Route>
+					<Route path="/locations" component={Locations} />
+					<Route path="/locations/new" component={AddLocationForm} />
 
 					{/* Home */}
 					<Route exact path='/'>
