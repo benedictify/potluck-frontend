@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// Router
 import { BrowserRouter as Router } from 'react-router-dom';
 // Redux
 import { Provider } from "react-redux";
 import { createStore } from 'redux'
-import combined from './reducers/index'
+import reducers from './reducers/index'
 // utils
 import reportWebVitals from './reportWebVitals';
 // styles
@@ -13,7 +12,7 @@ import './index.css';
 // components
 import App from './App';
 
-const store = createStore(combined);
+const store = createStore(reducers);
 
 ReactDOM.render(
 	<Router>

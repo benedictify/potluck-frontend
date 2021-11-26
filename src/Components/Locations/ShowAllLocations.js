@@ -1,24 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { saveLocationsList } from "../../actions/locationsActions";
-import axios from '../../utils/axios'
+import data from "../../data"
 
 const ShowAllLocations = (props) => {
+	// console.log(props); // props.list: undefined
+
 	useEffect(() => {
-		saveLocationsList(axios.locationsList) // dispatch action to save "axios".locationsList to store
+		// saves data from data.js into action creator function -> locationsActions.js
+		props.dispatch(saveLocationsList(data.locationslist))
 	}, []);
+
+	const showList = () => {
+		console.log(props);
+		return ((props.list != undefined) ?
+			props.list.map(item => {
+				return (<li>{item.name}</li>)
+			}) :
+			<li>Loading...</li>)
+	}
 
 	return (
 		<div>
 			<h2>ShowAllLocations Component</h2>
-			<h3>{props.list}</h3>
+			<ul>
+				{showList()}
+			</ul>
 		</div>
 	)
 }
 
 const mapStateToProps = (state) => {
 	return ({
-		list: state.locations.list
+		list: state.locations.list,
 	});
 }
 

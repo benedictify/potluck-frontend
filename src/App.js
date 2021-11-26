@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from 'react-redux'
 // Routes
 import { Route, Switch, Redirect } from 'react-router-dom';
 import PrivateRoute from './Components/Routes/PrivateRoute';
@@ -27,13 +28,13 @@ import AddLocationForm from './Components/Locations/AddLocationForm';
 // styles
 import './App.css';
 
-function App() {
-	// Local State:
-
+function App(props) {
 	return (
 		<div className="App">
 			<div className='content'>
 				<Header />
+
+				<ShowAllLocations />
 
 				<Switch>
 					{/* Authentication */}
@@ -44,12 +45,11 @@ function App() {
 					{/* Events */}
 					<Route path='/events' component={EventsDashboard} />
 					<Route path='/events/:id' component={YourEvents} />
-					<Route path='/events/new' component={AddEventForm} eventsList={eventsList} setEventsList={setEventsList} />
+					<Route path='/events/new' component={AddEventForm} />
 					<Route path='/events/edit/:id' component={EditEvent} />
-					{/* <Route path='/acceptedEventID' component={PickFood} /> */}
 
 					{/* Locations */}
-					<Route path="/locations" component={ShowAllLocations} />
+					{/* <Route path="/locations" component={ShowAllLocations} /> */}
 					<Route path="/locations/:id" component={ShowLocation} />
 					<Route path="/locations/new" component={AddLocationForm} />
 
@@ -66,4 +66,8 @@ function App() {
 	);
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	return state;
+}
+
+export default connect(mapStateToProps)(App);
