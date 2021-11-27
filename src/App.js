@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from 'react-redux';
 // Routes
-import { Route, Switch, Redirect, Link } from 'react-router-dom';
+import { Route, Switch, Redirect, Link, useLocation } from 'react-router-dom';
 import PrivateRoute from './Components/Routes/PrivateRoute';
 // validations
 import formSchema from './validation/formSchema';
@@ -27,9 +27,10 @@ import ShowLocation from './Components/Locations/ShowLocation';
 import AddLocationForm from './Components/Locations/AddLocationForm';
 // styles
 import './App.css';
-import styled from 'styled-components';
 
 function App(props) {
+	const location = useLocation();
+
 	return (
 		<div className="App">
 			<div className='content'>
@@ -48,9 +49,9 @@ function App(props) {
 					<Route path='/events/edit/:id' component={EditEvent} />
 
 					{/* Locations */}
-					<Route path="/locations" component={ShowAllLocations} />
 					<Route path="/locations/:id" component={ShowLocation} />
 					<Route path="/locations/new" component={AddLocationForm} />
+					<Route exact path="/locations" component={ShowAllLocations} />
 
 					{/* Home */}
 					<Route exact path='/' component={Body} />
@@ -58,27 +59,18 @@ function App(props) {
 					<Redirect to="/" />
 				</Switch>
 
+				{location.pathname === "/" &&
+					<Link to="/locations" className="applinkbutton footernav">
+						Locations Menu
+					</Link>}
 			</div>
-			<div><StyledLink to="/locations" className="footernav">Locations Menu</StyledLink></div>
-			<Footer />
 
+			<Footer />
 		</div>
 	);
 };
 
-// const mapStateToProps = (state) => {
-// 	return state;
-// }
-
-export default App;
+// const mapStateToProps = (state) => { return state }
 // export default connect(mapStateToProps)(App);
 
-const StyledLink = styled.div`
-	display: flex;	
-	align-items: center;
-	justify-content: center;
-	border: solid green 1px;
-	background: black;
-	margin: 1%;
-	width: 15%;
-`
+export default App;

@@ -22,7 +22,6 @@ const ShowAllLocations = (props) => {
 		<div>
 			<h2>ShowAllLocations Component</h2>
 			<ul>
-				{/* {showList()} */}
 			</ul>
 		</div>
 	)
