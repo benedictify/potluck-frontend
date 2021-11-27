@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 // Routes
 import { Route, Switch, Redirect } from 'react-router-dom';
 import PrivateRoute from './Components/Routes/PrivateRoute';
@@ -34,8 +34,6 @@ function App(props) {
 			<div className='content'>
 				<Header />
 
-				<ShowAllLocations />
-
 				<Switch>
 					{/* Authentication */}
 					<Route path='/signup' component={SignUpForm} />
@@ -49,7 +47,7 @@ function App(props) {
 					<Route path='/events/edit/:id' component={EditEvent} />
 
 					{/* Locations */}
-					{/* <Route path="/locations" component={ShowAllLocations} /> */}
+					<Route path="/locations" component={ShowAllLocations} />
 					<Route path="/locations/:id" component={ShowLocation} />
 					<Route path="/locations/new" component={AddLocationForm} />
 
@@ -64,10 +62,11 @@ function App(props) {
 
 		</div>
 	);
-}
+};
 
-const mapStateToProps = (state) => {
-	return state;
-}
+// const mapStateToProps = (state) => {
+// 	return state;
+// }
 
-export default connect(mapStateToProps)(App);
+export default App;
+// export default connect(mapStateToProps)(App);

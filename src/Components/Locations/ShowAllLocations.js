@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { saveLocationsList } from "../../actions/locationsActions";
-import data from "../../data"
+import data from "../../data";
 
 const ShowAllLocations = (props) => {
-	// console.log(props); // props.list: undefined
-
 	useEffect(() => {
 		// saves data from data.js into action creator function -> locationsActions.js
 		props.dispatch(saveLocationsList(data.locationslist))
@@ -15,25 +13,25 @@ const ShowAllLocations = (props) => {
 		console.log(props);
 		return ((props.list != undefined) ?
 			props.list.map(item => {
-				return (<li>{item.name}</li>)
+				return (<li key={item.id}>{item.name}</li>)
 			}) :
-			<li>Loading...</li>)
-	}
+			<li key="0">Loading...</li>)
+	};
 
 	return (
 		<div>
 			<h2>ShowAllLocations Component</h2>
 			<ul>
-				{showList()}
+				{/* {showList()} */}
 			</ul>
 		</div>
 	)
-}
+};
 
 const mapStateToProps = (state) => {
 	return ({
 		list: state.locations.list,
 	});
-}
+};
 
 export default connect(mapStateToProps)(ShowAllLocations);
