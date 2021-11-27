@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux';
 // Routes
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import PrivateRoute from './Components/Routes/PrivateRoute';
 // validations
 import formSchema from './validation/formSchema';
@@ -27,6 +27,7 @@ import ShowLocation from './Components/Locations/ShowLocation';
 import AddLocationForm from './Components/Locations/AddLocationForm';
 // styles
 import './App.css';
+import styled from 'styled-components';
 
 function App(props) {
 	return (
@@ -58,6 +59,7 @@ function App(props) {
 				</Switch>
 
 			</div>
+			<div><StyledLink to="/locations" className="footernav">Locations Menu</StyledLink></div>
 			<Footer />
 
 		</div>
@@ -70,3 +72,13 @@ function App(props) {
 
 export default App;
 // export default connect(mapStateToProps)(App);
+
+const StyledLink = styled.div`
+	display: flex;	
+	align-items: center;
+	justify-content: center;
+	border: solid green 1px;
+	background: black;
+	margin: 1%;
+	width: 15%;
+`
