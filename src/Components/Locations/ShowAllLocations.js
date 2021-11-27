@@ -4,8 +4,8 @@ import { saveLocationsList } from "../../actions/locationsActions";
 import data from "../../data";
 
 const ShowAllLocations = (props) => {
+	
 	useEffect(() => {
-		// saves data from data.js into action creator function -> locationsActions.js
 		props.dispatch(saveLocationsList(data.locationslist))
 	}, []);
 
