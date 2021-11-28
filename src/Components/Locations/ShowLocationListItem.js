@@ -3,7 +3,7 @@ import React from "react";
 const ShowLocationsListItem = () => {
 	return (
 		<div>
-			ShowLocationsListItem Component  
+			"ShowLocationsListItem"
 		</div>
 	)
 }

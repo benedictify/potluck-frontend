@@ -1,13 +1,19 @@
 import React from "react";
 import ShowLocationsListItem from "./ShowLocationListItem";
 
-const ShowLocationsList = () => {
+const ShowLocationsList = (props) => {
 	return (
-		<div>
-			ShowLocationsList Component  
-			<ShowLocationsListItem />
-		</div>
+		<>
+			<p>"ShowLocationsList"</p>
+			<ul>
+				{props.list.map(item => {
+					return (<ShowLocationsListItem {...item} />)
+				})}
+			</ul>
+		</>
 	)
 }
+
+
 
 export default ShowLocationsList;

@@ -4,7 +4,6 @@ import image from '../../Images/middleImg.jpeg';
 import { Link } from 'react-router-dom';
 import pot from '../../Images/blackLogo.png';
 
-
 const Body = () => {
 	return (
 		<div className='whole-body'>
@@ -33,6 +32,7 @@ const StyledBody = styled.div`
 		width: 25rem;
 		margin: 0 auto 7%;
 	}
+	
 	.left {
 		display:flex;
 		flex-direction: column;
@@ -43,16 +43,19 @@ const StyledBody = styled.div`
 		padding: 5%;
 		font-weight: normal;
 	}
+	
 	.left h3 {
 		text-decoration: none;
 		font-size: 1.5rem;
 		font-weight: normal;
 		margin: 0 auto 3%;
 	}
+	
 	.left p {
 		margin-bottom: 10%;
 		font-size: 1.2rem;
 	}
+	
 	.right {
 		background-image: url(${image});
 		height: 100%;

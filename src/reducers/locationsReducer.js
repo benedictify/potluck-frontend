@@ -7,7 +7,6 @@ const initialState = {
 const locationsReducer = (state = [], action) => {
 	switch (action.type) {
 		case SAVE_LOCATIONS_LIST:
-			
 			return ({
 				...state,
 				list: action.payload,

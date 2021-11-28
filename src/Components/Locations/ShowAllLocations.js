@@ -1,36 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+// Action Creators
 import { saveLocationsList } from "../../actions/locationsActions";
+// Components
+import ShowLocationsList from "../Locations/ShowLocationsList";
+// data
 import data from "../../data";
 
 const ShowAllLocations = (props) => {
-	
-	useEffect(() => {
-		props.dispatch(saveLocationsList(data.locationslist))
-	}, []);
 
-	const showList = () => {
-		console.log(props);
-		return ((props.list != undefined) ?
-			props.list.map(item => {
-				return (<li key={item.id}>{item.name}</li>)
-			}) :
-			<li key="0">Loading...</li>)
-	};
+	useEffect(() => {
+		props.saveLocationsList(data.locationslist)
+	}, []);
 
 	return (
 		<div>
-			<h2>ShowAllLocations Component</h2>
-			<ul>
-			</ul>
+			<h2>Locations</h2>
+			<ShowLocationsList list={props.list} />
+			{/* {console.log("inside ShowAllL: ", props)}
+			{console.log("inside ShowAllL: ", props.list)} */}
 		</div>
 	)
 };
 
 const mapStateToProps = (state) => {
+	// console.log("state inside mSTP: ", state);
+
 	return ({
 		list: state.locations.list,
 	});
 };
 
-export default connect(mapStateToProps)(ShowAllLocations);
+const mapActionsToProps = {
+	saveLocationsList,
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(ShowAllLocations);
