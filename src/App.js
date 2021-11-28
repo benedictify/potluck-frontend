@@ -50,8 +50,8 @@ function App(props) {
 
 					{/* Locations */}
 					<Route exact path="/locations" component={ShowAllLocations} />
-					{/* <Route path="/locations/:id" component={ShowOneLocation} /> */}
-					{/* <Route path="/locations/new" component={AddLocationForm} /> */}
+					{/* <Route exact path="/locations/new" component={AddLocationForm} /> */}
+					<Route path="/locations/:id" component={ShowOneLocation} />
 
 					{/* Home */}
 					<Route exact path='/' component={Body} />
@@ -66,7 +66,7 @@ function App(props) {
 					</Link>}
 			</div>
 
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	);
 };

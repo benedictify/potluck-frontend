@@ -187,21 +187,21 @@ const StyledHeader = styled.div`
 
 const StyledDTL = styled.div`
 	display: flex;
-    flex-direction: column;
-    margin: 3%;
+	flex-direction: column;
+	margin: 3%;
 `;
 
 const StyledDiv = styled.div`
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	align-items: center;
 `;
 
 const StyledDetails = styled.div`
-    border: solid lightgrey 1px;
-    padding: 5%;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
+	border: solid lightgrey 1px;
+	padding: 5%;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
 `;

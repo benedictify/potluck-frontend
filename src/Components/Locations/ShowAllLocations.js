@@ -24,14 +24,14 @@ const ShowAllLocations = (props) => {
 	)
 };
 
-const mapStateToProps = (state) => {
+const mapState = (state) => {
 	return ({
 		list: state.locations.list,
 	});
 };
 
-const mapActionsToProps = {
+const mapActions = {
 	saveLocationsList,
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(ShowAllLocations);
+export default connect(mapState, mapActions)(ShowAllLocations);

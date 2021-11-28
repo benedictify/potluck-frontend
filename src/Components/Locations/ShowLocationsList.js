@@ -4,8 +4,8 @@ import ShowLocationsListItem from "./ShowLocationsListItem";
 const ShowLocationsList = (props) => {
 	return (
 		<>
-			{props.list.map(item => {
-				return (<ShowLocationsListItem {...item} />)
+			{props.list.map((item, i) => {
+				return (<ShowLocationsListItem key={i} {...item} />)
 			})}
 		</>
 	)
