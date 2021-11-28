@@ -1,8 +1,11 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const ShowLocationsListItem = (props) => {
 	return (
-		<p>{props.name}</p>
+		<Link to="/" >
+			<p>{props.name}</p>
+		</Link>
 	)
 }
 

@@ -49,9 +49,9 @@ function App(props) {
 					<Route path='/events/edit/:id' component={EditEvent} />
 
 					{/* Locations */}
+					<Route exact path="/locations" component={ShowAllLocations} />
 					{/* <Route path="/locations/:id" component={ShowOneLocation} /> */}
 					{/* <Route path="/locations/new" component={AddLocationForm} /> */}
-					<Route exact path="/locations/index" component={ShowAllLocations} />
 
 					{/* Home */}
 					<Route exact path='/' component={Body} />
@@ -61,7 +61,7 @@ function App(props) {
 
 				{/* render Location Menu button only on root page */}
 				{location.pathname === "/" &&
-					<Link to="/locations/index" className="applinkbutton footernav">
+					<Link to="/locations" className="applinkbutton">
 						Locations Menu
 					</Link>}
 			</div>
@@ -70,8 +70,5 @@ function App(props) {
 		</div>
 	);
 };
-
-// const mapState = (state) => { return state }
-// export default connect(mapStateToProps)(App);
 
 export default App;

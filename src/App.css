@@ -173,6 +173,9 @@ a {
 	width: 15%;
 }
 
+.buttonlink {
+	margin-top: 3rem;
+}
 
 /* Pushes footer down */
 .content {
