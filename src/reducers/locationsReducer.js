@@ -4,7 +4,7 @@ const initialState = {
 	list: []
 }
 
-const locationsReducer = (state = [], action) => {
+const locationsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SAVE_LOCATIONS_LIST:
 			return ({

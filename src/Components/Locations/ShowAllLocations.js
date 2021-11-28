@@ -15,8 +15,9 @@ const ShowAllLocations = (props) => {
 
 	return (
 		<div>
-			<h2>Locations</h2>
+			<h2>Locations</h2>  
 			<ShowLocationsList list={props.list} />
+			{console.log(props)}
 		</div>
 	)
 };

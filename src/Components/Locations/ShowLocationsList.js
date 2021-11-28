@@ -1,19 +1,15 @@
 import React from "react";
-import ShowLocationsListItem from "./ShowLocationListItem";
+import ShowLocationsListItem from "./ShowLocationsListItem";
 
 const ShowLocationsList = (props) => {
+	console.log(props);
 	return (
 		<>
-			{/* <p>"ShowLocationsList"</p> */}
-			<ul>
-				{props.list.map(item => {
-					return (<ShowLocationsListItem {...item} />)
-				})}
-			</ul>
+			{props.list.map(item => {
+				return (<ShowLocationsListItem {...item} />)
+			})}
 		</>
 	)
 }
-
-
 
 export default ShowLocationsList;

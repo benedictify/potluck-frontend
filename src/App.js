@@ -23,7 +23,7 @@ import EditEvent from './Components/Events/EditEvent';
 // import PickFood from './Components/Foods/PickFood';
 // Locations
 import ShowAllLocations from './Components/Locations/ShowAllLocations';
-import ShowLocation from './Components/Locations/ShowLocation';
+import ShowOneLocation from './Components/Locations/ShowOneLocation';
 import AddLocationForm from './Components/Locations/AddLocationForm';
 // styles
 import './App.css';
@@ -49,7 +49,7 @@ function App(props) {
 					<Route path='/events/edit/:id' component={EditEvent} />
 
 					{/* Locations */}
-					{/* <Route path="/locations/:id" component={ShowLocation} /> */}
+					{/* <Route path="/locations/:id" component={ShowOneLocation} /> */}
 					{/* <Route path="/locations/new" component={AddLocationForm} /> */}
 					<Route exact path="/locations/index" component={ShowAllLocations} />
 
