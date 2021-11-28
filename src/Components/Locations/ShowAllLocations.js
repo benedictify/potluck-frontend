@@ -17,15 +17,11 @@ const ShowAllLocations = (props) => {
 		<div>
 			<h2>Locations</h2>
 			<ShowLocationsList list={props.list} />
-			{/* {console.log("inside ShowAllL: ", props)}
-			{console.log("inside ShowAllL: ", props.list)} */}
 		</div>
 	)
 };
 
 const mapStateToProps = (state) => {
-	// console.log("state inside mSTP: ", state);
-
 	return ({
 		list: state.locations.list,
 	});

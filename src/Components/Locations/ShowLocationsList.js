@@ -4,7 +4,7 @@ import ShowLocationsListItem from "./ShowLocationListItem";
 const ShowLocationsList = (props) => {
 	return (
 		<>
-			<p>"ShowLocationsList"</p>
+			{/* <p>"ShowLocationsList"</p> */}
 			<ul>
 				{props.list.map(item => {
 					return (<ShowLocationsListItem {...item} />)

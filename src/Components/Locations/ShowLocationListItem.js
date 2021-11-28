@@ -1,10 +1,8 @@
 import React from "react";
 
-const ShowLocationsListItem = () => {
+const ShowLocationsListItem = (props) => {
 	return (
-		<div>
-			"ShowLocationsListItem"
-		</div>
+		<li>{props.name}</li>
 	)
 }
 
