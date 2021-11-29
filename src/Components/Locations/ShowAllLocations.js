@@ -17,9 +17,9 @@ const ShowAllLocations = (props) => {
 
 	return (
 		<div>
-			<h2>Locations</h2>  
+			<h2>Locations</h2>
 			<ShowLocationsList list={props.list} />
-			<Link to="/"><button className="buttonlink">Home</button></Link>
+			<Link to="/"><button style={buttonlink}>Home</button></Link>
 		</div>
 	)
 };
@@ -35,3 +35,7 @@ const mapActions = {
 }
 
 export default connect(mapState, mapActions)(ShowAllLocations);
+
+const buttonlink = {
+	marginTop: "3rem",
+}

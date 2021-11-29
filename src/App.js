@@ -35,7 +35,12 @@ function App(props) {
 		<div className="App">
 			<div className='content'>
 				<Header />
-
+				{/* render Location Menu button only on root page */}
+				{location.pathname === "/" &&
+					<Link to="/locations" className="applinkbutton">
+						Locations Menu
+					</Link>}
+					
 				<Switch>
 					{/* Authentication */}
 					<Route path='/signup' component={SignUpForm} />
@@ -58,12 +63,6 @@ function App(props) {
 
 					<Redirect to="/" />
 				</Switch>
-
-				{/* render Location Menu button only on root page */}
-				{location.pathname === "/" &&
-					<Link to="/locations" className="applinkbutton">
-						Locations Menu
-					</Link>}
 			</div>
 
 			<Footer />
